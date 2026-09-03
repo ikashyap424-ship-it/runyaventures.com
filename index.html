@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Runya Ventures Private Limited — Furniture, interior works, hospital furniture, indoor and outdoor furniture, bulk furniture supply, and steel and wooden furniture manufacturing and trading.">
+<meta name="description" content="Runya Ventures Private Limited — furniture solutions, hospital furniture, interior works, indoor and outdoor furniture, bulk furniture supply, and steel and wooden furniture solutions.">
 
 <meta name="theme-color" content="#08090b">
 
@@ -12,9 +12,9 @@
 
 <style>
 
-/* =========================
+/* =========================================================
    ROOT
-========================= */
+========================================================= */
 
 :root{
     --bg:#08090b;
@@ -68,6 +68,11 @@ body{
     overflow-x:hidden;
 }
 
+body::selection{
+    background:var(--gold);
+    color:#111;
+}
+
 a{
     text-decoration:none;
     color:inherit;
@@ -76,6 +81,10 @@ a{
 img{
     max-width:100%;
     display:block;
+}
+
+button{
+    font:inherit;
 }
 
 .container{
@@ -110,16 +119,13 @@ p{
 }
 
 
-/* =========================
-   ANIMATED BACKGROUND ELEMENTS
-========================= */
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 .bg-particles{
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
+    inset:0;
     z-index:1;
     pointer-events:none;
 }
@@ -130,23 +136,33 @@ p{
     height:4px;
     background:rgba(215,180,106,.3);
     border-radius:50%;
-    animation: float-particle linear infinite;
+    animation:floatParticle linear infinite;
 }
 
-@keyframes float-particle{
+@keyframes floatParticle{
+
     0%{
         opacity:0;
-        transform:translateY(100vh) translateX(0) scale(1);
+        transform:
+            translateY(100vh)
+            translateX(0)
+            scale(1);
     }
+
     10%{
         opacity:1;
     }
+
     90%{
         opacity:1;
     }
+
     100%{
         opacity:0;
-        transform:translateY(-100vh) translateX(var(--tx)) scale(0);
+        transform:
+            translateY(-100vh)
+            translateX(var(--tx))
+            scale(0);
     }
 }
 
@@ -161,48 +177,76 @@ p{
 .orb-1{
     width:500px;
     height:500px;
-    background:radial-gradient(circle, rgba(215,180,106,.15) 0%, transparent 70%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,180,106,.15),
+            transparent 70%
+        );
     top:10%;
     right:-200px;
-    animation: orb-move-1 8s ease-in-out infinite;
+    animation:orbMove1 8s ease-in-out infinite;
 }
 
 .orb-2{
     width:400px;
     height:400px;
-    background:radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
     bottom:10%;
     left:-150px;
-    animation: orb-move-2 10s ease-in-out infinite;
+    animation:orbMove2 10s ease-in-out infinite;
 }
 
 .orb-3{
     width:300px;
     height:300px;
-    background:radial-gradient(circle, rgba(215,180,106,.1) 0%, transparent 70%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,180,106,.1),
+            transparent 70%
+        );
     top:50%;
     left:50%;
-    animation: orb-move-3 12s ease-in-out infinite;
+    animation:orbMove3 12s ease-in-out infinite;
 }
 
-@keyframes orb-move-1{
-    0%, 100%{ transform: translate(0, 0); }
-    50%{ transform: translate(-100px, 100px); }
+@keyframes orbMove1{
+    0%,100%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(-100px,100px);
+    }
 }
 
-@keyframes orb-move-2{
-    0%, 100%{ transform: translate(0, 0); }
-    50%{ transform: translate(150px, -100px); }
+@keyframes orbMove2{
+    0%,100%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(150px,-100px);
+    }
 }
 
-@keyframes orb-move-3{
-    0%, 100%{ transform: translate(0, 0); }
-    50%{ transform: translate(-80px, 80px); }
+@keyframes orbMove3{
+    0%,100%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(-80px,80px);
+    }
 }
 
-/* =========================
+
+/* =========================================================
    BUTTONS
-========================= */
+========================================================= */
 
 .btn{
     display:inline-flex;
@@ -221,7 +265,7 @@ p{
 
     font-weight:700;
     font-size:.9rem;
-    
+
     position:relative;
     overflow:hidden;
 }
@@ -233,13 +277,27 @@ p{
     left:-100%;
     width:100%;
     height:100%;
-    background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-    animation: shine-btn 3s infinite;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    animation:buttonShine 3s infinite;
 }
 
-@keyframes shine-btn{
-    0%{ left:-100%; }
-    100%{ left:100%; }
+@keyframes buttonShine{
+
+    0%{
+        left:-100%;
+    }
+
+    100%{
+        left:100%;
+    }
 }
 
 .btn:hover{
@@ -270,9 +328,9 @@ p{
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section{
     padding:105px 0;
@@ -286,27 +344,16 @@ p{
     gap:40px;
     align-items:end;
     margin-bottom:50px;
-    animation: slide-in-left .8s ease-out;
 }
 
 .section-head p{
     max-width:520px;
 }
 
-@keyframes slide-in-left{
-    from{
-        opacity:0;
-        transform:translateX(-50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
 
-/* =========================
-   CURSOR LIGHT
-========================= */
+/* =========================================================
+   CURSOR
+========================================================= */
 
 .cursor-glow{
     position:fixed;
@@ -320,7 +367,8 @@ p{
 
     z-index:0;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     background:
         radial-gradient(
@@ -333,9 +381,9 @@ p{
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
     position:fixed;
@@ -351,7 +399,8 @@ header{
     backdrop-filter:blur(18px);
 
     border-bottom:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 nav{
@@ -369,7 +418,6 @@ nav{
 
     font-weight:900;
     letter-spacing:.08em;
-    animation: pop-in .6s cubic-bezier(.34, 1.56, .64, 1);
 }
 
 .brand img{
@@ -379,12 +427,15 @@ nav{
     object-fit:contain;
 
     border-radius:12px;
-    
-    transition: transform .3s ease;
+
+    transition:
+        transform .3s ease;
 }
 
 .brand:hover img{
-    transform: rotate(5deg) scale(1.1);
+    transform:
+        rotate(5deg)
+        scale(1.08);
 }
 
 .brand span{
@@ -408,11 +459,15 @@ nav{
 .navlinks a::after{
     content:"";
     position:absolute;
+
     bottom:0;
     left:0;
+
     width:0;
     height:2px;
+
     background:var(--gold2);
+
     transition:.3s ease;
 }
 
@@ -442,20 +497,10 @@ nav{
     cursor:pointer;
 }
 
-@keyframes pop-in{
-    0%{
-        opacity:0;
-        transform:scale(0.8);
-    }
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
-}
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
@@ -487,7 +532,8 @@ nav{
             transparent 1px
         );
 
-    background-size:70px 70px;
+    background-size:
+        70px 70px;
 
     mask-image:
         linear-gradient(
@@ -496,10 +542,12 @@ nav{
             transparent 82%
         );
 
-    animation:gridMove 18s linear infinite;
+    animation:
+        gridMove 18s linear infinite;
 }
 
 @keyframes gridMove{
+
     to{
         background-position:
             70px 70px;
@@ -508,6 +556,7 @@ nav{
 
 .hero-inner{
     position:relative;
+
     z-index:2;
 
     width:min(var(--max),92%);
@@ -521,32 +570,31 @@ nav{
 
 .hero-logo{
     display:flex;
-    justify-content:center;
-    margin-bottom:30px;
+    justify-content:flex-start;
+
+    margin-bottom:25px;
+
     animation:
-        float-logo 3s ease-in-out infinite,
         heroIn 1.2s
         cubic-bezier(.2,.8,.2,1)
         both;
 }
 
-@keyframes float-logo{
-    0%, 100%{
-        transform: translateY(0px) rotateZ(0deg);
-    }
-    50%{
-        transform: translateY(-20px) rotateZ(2deg);
-    }
-}
-
 .hero-logo img{
-    height:120px;
+    height:110px;
     width:auto;
+
     object-fit:contain;
-    filter: drop-shadow(0 10px 30px rgba(215,180,106,.2));
+
+    filter:
+        drop-shadow(
+            0 10px 30px
+            rgba(215,180,106,.2)
+        );
 }
 
 .hero h1{
+
     font-size:
         clamp(
             3.5rem,
@@ -560,11 +608,13 @@ nav{
 
     animation:
         heroIn 1.2s
+        .1s
         cubic-bezier(.2,.8,.2,1)
         both;
 }
 
 .hero h1 span{
+
     display:inline-block;
 
     background:
@@ -586,6 +636,7 @@ nav{
 }
 
 @keyframes shine{
+
     to{
         background-position:
             220% center;
@@ -593,8 +644,10 @@ nav{
 }
 
 @keyframes heroIn{
+
     from{
         opacity:0;
+
         transform:
             translateY(45px)
             scale(.97);
@@ -602,19 +655,25 @@ nav{
 
     to{
         opacity:1;
+
         transform:none;
     }
 }
 
-.hero-copy>p{
+.hero-copy > p{
+
     font-size:1.08rem;
-    max-width:690px;
+
+    max-width:720px;
 
     animation:
-        heroIn 1.2s .15s both;
+        heroIn 1.2s
+        .2s
+        both;
 }
 
 .hero-actions{
+
     display:flex;
 
     gap:12px;
@@ -624,13 +683,16 @@ nav{
     margin-top:30px;
 
     animation:
-        heroIn 1.2s .3s both;
+        heroIn 1.2s
+        .3s
+        both;
 }
 
 
-/* Decorative Orb */
+/* HERO ORB */
 
 .hero-orb{
+
     position:absolute;
 
     right:-8vw;
@@ -649,14 +711,13 @@ nav{
     border-radius:50%;
 
     animation:
-        orb 12s
-        ease-in-out
-        infinite,
-        orb-glow 3s ease-in-out infinite;
+        heroOrb 12s
+        ease-in-out infinite;
 }
 
-.hero-orb:before,
-.hero-orb:after{
+.hero-orb::before,
+.hero-orb::after{
+
     content:"";
 
     position:absolute;
@@ -669,17 +730,20 @@ nav{
 
     inset:10%;
 
-    transform:rotate(25deg);
+    transform:
+        rotate(25deg);
 }
 
-.hero-orb:after{
+.hero-orb::after{
+
     inset:22%;
 
     transform:
         rotate(-35deg);
 }
 
-@keyframes orb{
+@keyframes heroOrb{
+
     50%{
         transform:
             translateY(-20px)
@@ -687,16 +751,8 @@ nav{
     }
 }
 
-@keyframes orb-glow{
-    0%, 100%{
-        box-shadow: 0 0 30px rgba(215,180,106,.1);
-    }
-    50%{
-        box-shadow: 0 0 60px rgba(215,180,106,.2);
-    }
-}
-
 .float-tag{
+
     position:absolute;
 
     right:11%;
@@ -711,7 +767,8 @@ nav{
         1px solid
         var(--line);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     border-radius:16px;
 
@@ -720,60 +777,57 @@ nav{
     color:#ddd;
 
     animation:
-        float 5s
-        ease-in-out
-        infinite,
-        pulse-tag 2s ease-in-out infinite;
+        floatTag 5s
+        ease-in-out infinite;
 }
 
-@keyframes float{
+@keyframes floatTag{
+
     50%{
         transform:
             translateY(-14px);
     }
 }
 
-@keyframes pulse-tag{
-    0%, 100%{
-        box-shadow: 0 0 10px rgba(215,180,106,.2);
-    }
-    50%{
-        box-shadow: 0 0 20px rgba(215,180,106,.4);
-    }
-}
 
-/* =========================
+/* =========================================================
    TICKER
-========================= */
+========================================================= */
 
 .ticker{
+
     overflow:hidden;
 
     border-top:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 
     border-bottom:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 
     background:#0b0c0f;
-    
+
     position:relative;
+
     z-index:2;
 }
 
 .ticker-track{
+
     display:flex;
 
     width:max-content;
 
     animation:
         ticker 28s
-        linear
-        infinite;
+        linear infinite;
 }
 
 .ticker span{
-    padding:17px 30px;
+
+    padding:
+        17px 30px;
 
     color:#bdbdb7;
 
@@ -786,10 +840,10 @@ nav{
 
 .ticker b{
     color:var(--gold2);
-    font-weight:800;
 }
 
 @keyframes ticker{
+
     to{
         transform:
             translateX(-50%);
@@ -797,11 +851,12 @@ nav{
 }
 
 
-/* =========================
-   SOLUTION CARDS
-========================= */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .cards{
+
     display:grid;
 
     grid-template-columns:
@@ -811,6 +866,7 @@ nav{
 }
 
 .card{
+
     background:
         linear-gradient(
             145deg,
@@ -822,7 +878,8 @@ nav{
         1px solid
         var(--line);
 
-    border-radius:var(--radius);
+    border-radius:
+        var(--radius);
 
     padding:30px;
 
@@ -833,26 +890,10 @@ nav{
     transition:
         .45s
         cubic-bezier(.2,.8,.2,1);
-    
-    animation: card-appear .8s ease-out both;
 }
 
-.card:nth-child(1){ animation-delay: .1s; }
-.card:nth-child(2){ animation-delay: .2s; }
-.card:nth-child(3){ animation-delay: .3s; }
+.card::before{
 
-@keyframes card-appear{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.card:before{
     content:"";
 
     position:absolute;
@@ -869,29 +910,34 @@ nav{
         rgba(215,180,106,.12);
 
     filter:blur(20px);
-    
-    transition: all .3s ease;
+
+    transition:.3s;
 }
 
-.card:hover:before{
+.card:hover::before{
+
     width:250px;
     height:250px;
-    background:rgba(215,180,106,.2);
+
+    background:
+        rgba(215,180,106,.2);
 }
 
 .card:hover{
+
     transform:
-        translateY(-15px);
+        translateY(-12px);
 
     border-color:
         rgba(215,180,106,.35);
-    
+
     box-shadow:
-        0 20px 60px rgba(215,180,106,.15),
-        inset 0 1px 0 rgba(255,255,255,.1);
+        0 20px 60px
+        rgba(215,180,106,.12);
 }
 
 .card-number{
+
     font-size:.7rem;
 
     color:var(--gold2);
@@ -899,39 +945,29 @@ nav{
     letter-spacing:.18em;
 
     margin-bottom:65px;
-    
-    font-weight:800;
-    
-    animation: count-up 1s ease-out .3s both;
-}
 
-@keyframes count-up{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    font-weight:800;
 }
 
 .card h3{
+
     font-size:1.5rem;
 
     margin-bottom:10px;
 }
 
 .card p{
+
     font-size:.9rem;
 }
 
 
-/* =========================
+/* =========================================================
    COMPANY
-========================= */
+========================================================= */
 
 .company-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -941,42 +977,44 @@ nav{
 }
 
 .info-panel{
-    border:
-        1px solid var(--line);
 
-    border-radius:var(--radius);
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
 
     padding:34px;
 
     background:
         rgba(255,255,255,.035);
-    
-    animation: slide-in-left .8s ease-out;
-    
-    backdrop-filter:blur(10px);
-}
 
-.company-grid > :nth-child(2){
-    animation: slide-in-right .8s ease-out;
-}
+    backdrop-filter:
+        blur(10px);
 
-@keyframes slide-in-right{
-    from{
-        opacity:0;
-        transform:translateX(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+    transition:.4s;
 }
 
 .info-panel:hover{
-    border-color:rgba(215,180,106,.3);
-    box-shadow: 0 0 20px rgba(215,180,106,.1);
+
+    border-color:
+        rgba(215,180,106,.3);
+
+    box-shadow:
+        0 0 30px
+        rgba(215,180,106,.08);
+}
+
+.info-panel h3{
+
+    font-size:1.8rem;
+
+    margin-bottom:14px;
 }
 
 .facts{
+
     display:grid;
 
     grid-template-columns:
@@ -991,18 +1029,22 @@ nav{
 }
 
 .fact{
+
     background:#0c0e11;
 
     padding:22px;
-    
-    transition: all .3s ease;
+
+    transition:.3s;
 }
 
 .fact:hover{
-    background:rgba(215,180,106,.05);
+
+    background:
+        rgba(215,180,106,.06);
 }
 
 .fact small{
+
     display:block;
 
     color:#777;
@@ -1017,10 +1059,14 @@ nav{
 }
 
 .fact strong{
-    font-size:.95rem;
+
+    font-size:.92rem;
+
+    word-break:break-word;
 }
 
 .address{
+
     margin-top:20px;
 
     padding:20px;
@@ -1031,27 +1077,30 @@ nav{
 
     background:
         rgba(215,180,106,.045);
-    
-    transition: all .3s ease;
+
+    transition:.3s;
 }
 
 .address:hover{
-    background:rgba(215,180,106,.08);
-    border-left-color:var(--gold2);
+
+    background:
+        rgba(215,180,106,.08);
 }
 
 .address strong{
+
     display:block;
 
-    margin-bottom:5px;
+    margin-bottom:7px;
 }
 
 
-/* =========================
+/* =========================================================
    DIRECTORS
-========================= */
+========================================================= */
 
 .directors{
+
     display:grid;
 
     grid-template-columns:
@@ -1061,10 +1110,13 @@ nav{
 }
 
 .director{
-    border:
-        1px solid var(--line);
 
-    border-radius:var(--radius);
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
 
     overflow:hidden;
 
@@ -1073,58 +1125,66 @@ nav{
     transition:
         .45s
         cubic-bezier(.2,.8,.2,1);
-    
-    animation: scale-in .8s ease-out both;
-    
+
     position:relative;
 }
 
-.director:nth-child(1){ animation-delay: .1s; }
-.director:nth-child(2){ animation-delay: .2s; }
-.director:nth-child(3){ animation-delay: .3s; }
-
-/* Primary director badge */
-.director:nth-child(2)::before{
-    content:"PRIMARY DIRECTOR";
-    position:absolute;
-    top:15px;
-    right:-50px;
-    background:var(--gold);
-    color:#12110d;
-    padding:8px 60px;
-    font-size:.65rem;
-    font-weight:800;
-    letter-spacing:.15em;
-    transform:rotate(45deg);
-    z-index:10;
-    text-align:center;
-    box-shadow: 0 4px 15px rgba(215,180,106,.3);
-}
-
-@keyframes scale-in{
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
 .director:hover{
+
     transform:
         translateY(-12px);
 
     border-color:
         rgba(215,180,106,.35);
-    
+
     box-shadow:
-        0 25px 50px rgba(0,0,0,.4),
-        0 0 30px rgba(215,180,106,.15);
+        0 25px 50px
+        rgba(0,0,0,.4),
+        0 0 30px
+        rgba(215,180,106,.15);
+}
+
+
+/* PRIMARY BADGE */
+
+.director.primary::before{
+
+    content:
+        "PRIMARY DIRECTOR";
+
+    position:absolute;
+
+    top:15px;
+    right:-50px;
+
+    background:
+        var(--gold);
+
+    color:#12110d;
+
+    padding:
+        8px 60px;
+
+    font-size:.65rem;
+
+    font-weight:800;
+
+    letter-spacing:.15em;
+
+    transform:
+        rotate(45deg);
+
+    z-index:10;
+
+    text-align:center;
+
+    box-shadow:
+        0 4px 15px
+        rgba(215,180,106,.3);
 }
 
 .director-photo{
+
     height:350px;
 
     position:relative;
@@ -1139,24 +1199,41 @@ nav{
         );
 }
 
-.director-photo::before{
+.director-photo::after{
+
     content:"";
+
     position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:linear-gradient(45deg, transparent 30%, rgba(215,180,106,.1) 50%, transparent 70%);
-    animation: shine-photo 3s infinite;
-    z-index:1;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(215,180,106,.1) 50%,
+            transparent 70%
+        );
+
+    transform:
+        translateX(-100%);
+
+    animation:
+        photoShine 3s infinite;
+
+    pointer-events:none;
 }
 
-@keyframes shine-photo{
-    0%{ transform: translateX(-100%); }
-    100%{ transform: translateX(100%); }
+@keyframes photoShine{
+
+    100%{
+        transform:
+            translateX(100%);
+    }
 }
 
 .director-photo img{
+
     width:100%;
     height:100%;
 
@@ -1169,14 +1246,19 @@ nav{
 
 .director:hover
 .director-photo img{
-    transform:scale(1.1) rotate(2deg);
+
+    transform:
+        scale(1.08)
+        rotate(1deg);
 }
 
 .director-info{
+
     padding:25px;
 }
 
 .director-info .role{
+
     color:var(--gold2);
 
     font-size:.7rem;
@@ -1189,18 +1271,22 @@ nav{
 }
 
 .director-info h3{
+
     font-size:1.55rem;
 
-    margin:7px 0 12px;
+    margin:
+        7px 0 12px;
 }
 
 .director-info p{
+
     font-size:.86rem;
 
     margin-bottom:12px;
 }
 
 .director-info ul{
+
     list-style:none;
 
     color:#c5c5bf;
@@ -1209,7 +1295,8 @@ nav{
 }
 
 .director-info li{
-    padding:5px 0;
+
+    padding:7px 0;
 
     border-top:
         1px solid
@@ -1217,11 +1304,128 @@ nav{
 }
 
 
-/* =========================
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr 1.1fr;
+
+    gap:20px;
+
+    margin-bottom:20px;
+}
+
+.contact-card{
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        var(--radius);
+
+    padding:32px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.contact-card h3{
+
+    font-size:1.7rem;
+
+    margin-bottom:15px;
+}
+
+.contact-number{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:17px;
+
+    margin-top:12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:14px;
+
+    transition:.3s;
+}
+
+.contact-number:hover{
+
+    border-color:
+        rgba(215,180,106,.35);
+
+    transform:
+        translateX(5px);
+}
+
+.contact-number span{
+
+    color:var(--gold2);
+
+    font-weight:700;
+}
+
+.contact-actions{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.contact-actions a{
+
+    font-size:.75rem;
+
+    padding:
+        8px 12px;
+
+    border-radius:999px;
+
+    border:
+        1px solid
+        var(--line);
+
+    color:#bbb;
+
+    transition:.3s;
+}
+
+.contact-actions a:hover{
+
+    color:var(--gold2);
+
+    border-color:
+        var(--gold);
+}
+
+
+/* =========================================================
    CTA
-========================= */
+========================================================= */
 
 .cta{
+
     text-align:center;
 
     border:
@@ -1243,100 +1447,74 @@ nav{
     overflow:hidden;
 
     position:relative;
-    
-    animation: cta-pulse .6s ease-out;
-}
-
-@keyframes cta-pulse{
-    from{
-        opacity:0;
-        transform:scale(0.95);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.cta::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:radial-gradient(circle at 50% 0, rgba(215,180,106,.05) 0%, transparent 70%);
-    animation: cta-glow 3s ease-in-out infinite;
-}
-
-@keyframes cta-glow{
-    0%, 100%{ opacity:.5; }
-    50%{ opacity:1; }
 }
 
 .cta h2{
+
     max-width:760px;
 
     margin:
         0 auto 18px;
-    
-    position:relative;
-    z-index:1;
 }
 
 .cta p{
+
     max-width:650px;
 
     margin:auto;
-    
-    position:relative;
-    z-index:1;
 }
 
 .cta .hero-actions{
+
     justify-content:center;
-    position:relative;
-    z-index:1;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
+
     padding:
-        45px 0
-        90px;
+        50px 0
+        100px;
 
     border-top:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 
     margin-top:50px;
-    
+
     position:relative;
+
     z-index:2;
 }
 
 .footer-grid{
+
     display:flex;
 
     justify-content:space-between;
 
     gap:30px;
 
-    align-items:center;
+    align-items:flex-start;
 }
 
 .footer-note{
+
     font-size:.78rem;
 
     color:#70716e;
 
     margin-top:8px;
+
+    max-width:550px;
 }
 
 .footer-links{
+
     display:flex;
 
     gap:18px;
@@ -1344,28 +1522,64 @@ footer{
     font-size:.8rem;
 
     color:#999;
+
+    flex-wrap:wrap;
 }
 
 .footer-links a{
-    transition: all .3s ease;
+
+    transition:.3s;
+
     padding:5px 0;
-    border-bottom:1px solid transparent;
 }
 
 .footer-links a:hover{
+
     color:var(--gold2);
-    border-bottom-color:var(--gold2);
+}
+
+.footer-details{
+
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+
+    font-size:.75rem;
+
+    color:#777;
+}
+
+.footer-details strong{
+
+    display:block;
+
+    color:#aaa;
+
+    margin-bottom:4px;
 }
 
 
-/* =========================
-   FLOATING CONTACT
-========================= */
+/* =========================================================
+   FLOATING BUTTONS
+========================================================= */
 
 .floating-actions{
+
     position:fixed;
 
     right:22px;
+
     bottom:22px;
 
     z-index:40;
@@ -1378,6 +1592,7 @@ footer{
 }
 
 .float-btn{
+
     width:52px;
     height:52px;
 
@@ -1401,42 +1616,61 @@ footer{
 
     transition:.3s;
 
-    cursor:pointer;
-
-    color:#999;
-    
-    animation: float-btn-pop .6s cubic-bezier(.34, 1.56, .64, 1) backwards;
-}
-
-.float-btn:nth-child(1){ animation-delay: .2s; }
-.float-btn:nth-child(2){ animation-delay: .3s; }
-.float-btn:nth-child(3){ animation-delay: .4s; }
-
-@keyframes float-btn-pop{
-    from{
-        opacity:0;
-        transform:scale(0) translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
+    color:#bbb;
 }
 
 .float-btn:hover{
+
     color:var(--gold2);
 
     border-color:
         rgba(215,180,106,.5);
-    
-    transform:scale(1.1);
-    
+
+    transform:
+        scale(1.1)
+        translateY(-3px);
+
     box-shadow:
-        0 12px 35px rgba(215,180,106,.3),
-        0 0 20px rgba(215,180,106,.2);
+        0 12px 35px
+        rgba(215,180,106,.3);
 }
 
-@media (max-width:640px){
+.float-btn.wa{
+
+    background:
+        rgba(35,65,40,.7);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        1s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
 
     .navlinks{
         display:none;
@@ -1446,331 +1680,1870 @@ footer{
         display:block;
     }
 
-    .company-grid{
-        grid-template-columns:1fr;
+    .nav-cta{
+        display:none;
     }
 
+    .hero-orb{
+
+        right:-30%;
+
+        width:85vw;
+        height:85vw;
+
+        opacity:.45;
+    }
+
+    .cards,
     .directors{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+            1fr;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .company-grid,
+    .contact-grid{
+
+        grid-template-columns:
+            1fr;
     }
 
+    .section{
+
+        padding:80px 0;
+    }
+
+    .section-head{
+
+        display:block;
+    }
+
+    .section-head p{
+
+        margin-top:16px;
+    }
+
+    .director-photo{
+
+        height:420px;
+    }
+
+    .footer-details{
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .brand span{
+
+        display:none;
+    }
+
+    .hero h1{
+
+        font-size:
+            clamp(
+                3.1rem,
+                17vw,
+                5rem
+            );
+    }
+
+    .hero-logo img{
+
+        height:85px;
+    }
+
+    .facts{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-actions .btn{
+
+        width:100%;
+    }
+
+    .footer-grid{
+
+        display:block;
+    }
+
+    .footer-links{
+
+        margin-top:20px;
+    }
+
+    .floating-actions{
+
+        right:15px;
+        bottom:15px;
+    }
+}
+
+.navlinks.mobile-open{
+
+    display:flex;
+
+    position:absolute;
+
+    top:78px;
+    left:0;
+
+    width:100%;
+
+    padding:22px;
+
+    flex-direction:column;
+
+    background:
+        rgba(8,9,11,.97);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.1);
 }
 
 </style>
-
 </head>
+
+
 <body>
 
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
 <div class="bg-particles" id="particles"></div>
+
 <div class="gradient-orb orb-1"></div>
 <div class="gradient-orb orb-2"></div>
 <div class="gradient-orb orb-3"></div>
 
-<div class="cursor-glow"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
-    <div class="container">
-        <nav>
-            <div class="brand">
-                <img src="images/runya-logo.jpeg" alt="Runya Ventures">
-                <span>RUNYA</span>
-            </div>
 
-            <div class="navlinks">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#team">Team</a>
-                <a href="#contact">Contact</a>
-            </div>
+<nav class="container">
 
-            <div class="nav-cta">
-                <button class="menu">☰</button>
-            </div>
-        </nav>
-    </div>
+<a class="brand" href="#home">
+
+<img
+src="images/runya-logo.jpeg"
+alt="Runya Ventures logo"
+>
+
+<span>RUNYA VENTURES</span>
+
+</a>
+
+
+<div class="navlinks">
+
+<a href="#about">About</a>
+
+<a href="#solutions">Solutions</a>
+
+<a href="#company">Company</a>
+
+<a href="#directors">Leadership</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+
+<div class="nav-cta">
+
+<a
+class="btn btn-dark"
+href="tel:+917974052001"
+>
+Call
+</a>
+
+<a
+class="btn btn-primary"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+WhatsApp
+</a>
+
+</div>
+
+
+<button
+class="menu"
+aria-label="Open menu"
+onclick="
+document
+.querySelector('.navlinks')
+.classList
+.toggle('mobile-open')
+"
+>
+☰
+</button>
+
+</nav>
+
 </header>
 
-<section class="hero">
-    <div class="hero-grid"></div>
 
-    <div class="hero-inner">
-        <div class="hero-logo">
-            <img src="images/runya-logo.jpeg" alt="Runya Ventures Logo">
-        </div>
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-        <div class="hero-copy">
-            <h1>Premium <span>Furniture</span> Solutions</h1>
-            <p>Runya Ventures delivers high-quality furniture, interior solutions, and supply services to government institutions, schools, offices, hospitals, and businesses across India.</p>
+<main>
 
-            <div class="hero-actions">
-                <button class="btn btn-primary">Get Started</button>
-                <button class="btn btn-dark">Learn More</button>
-            </div>
-        </div>
-    </div>
+<section
+class="hero"
+id="home"
+>
 
-    <div class="hero-orb"></div>
-    <div class="float-tag">🚀 Growing Fast</div>
+<div class="hero-grid"></div>
+
+<div class="hero-orb"></div>
+
+<div class="float-tag">
+FURNITURE • INTERIORS • SUPPLY
+</div>
+
+
+<div class="hero-inner">
+
+<div class="hero-copy">
+
+<div class="hero-logo">
+
+<img
+src="images/runya-logo.jpeg"
+alt="Runya Ventures Logo"
+>
+
+</div>
+
+
+<div class="eyebrow">
+RUNYA VENTURES PRIVATE LIMITED
+</div>
+
+
+<h1>
+Furniture.
+<br>
+<span>Interiors.</span>
+<br>
+Complete Solutions.
+</h1>
+
+
+<p>
+
+Runya Ventures Private Limited is a newly incorporated company driven by experienced business leadership, delivering furniture, interior works, hospital furniture, indoor &amp; outdoor furniture, bulk furniture supply, and steel + wooden furniture solutions.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a
+class="btn btn-primary"
+href="#solutions"
+>
+Explore Solutions →
+</a>
+
+
+<a
+class="btn btn-dark"
+href="tel:+917974052001"
+>
+☎ Call 7974052001
+</a>
+
+
+<a
+class="btn btn-dark"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+◉ WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =====================================================
+     TICKER
+===================================================== -->
 
 <div class="ticker">
-    <div class="ticker-track">
-        <span>✦ <b>Furniture Manufacturing</b> ✦ <b>Interior Solutions</b> ✦ <b>Bulk Supply</b> ✦ <b>Custom Designs</b> ✦ <b>Furniture Manufacturing</b> ✦ <b>Interior Solutions</b> ✦ <b>Bulk Supply</b> ✦ <b>Custom Designs</b></span>
-    </div>
+
+<div class="ticker-track">
+
+<span>
+✦ <b>RUNYA VENTURES</b>
+</span>
+
+<span>
+Furniture Solutions
+</span>
+
+<span>
+Hospital Furniture
+</span>
+
+<span>
+Interior Works
+</span>
+
+<span>
+Bulk Furniture Supply
+</span>
+
+<span>
+Steel + Wooden Furniture
+</span>
+
+<span>
+Indoor + Outdoor Furniture
+</span>
+
+<span>
+Service &amp; Support
+</span>
+
+
+<span>
+✦ <b>RUNYA VENTURES</b>
+</span>
+
+<span>
+Furniture Solutions
+</span>
+
+<span>
+Hospital Furniture
+</span>
+
+<span>
+Interior Works
+</span>
+
+<span>
+Bulk Furniture Supply
+</span>
+
+<span>
+Steel + Wooden Furniture
+</span>
+
+<span>
+Indoor + Outdoor Furniture
+</span>
+
+<span>
+Service &amp; Support
+</span>
+
 </div>
 
-<section class="section" id="services">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow">What we offer</div>
-                <h2>Our Services</h2>
-            </div>
-            <p>We provide comprehensive furniture and interior solutions tailored to meet the diverse needs of our clients across various sectors.</p>
-        </div>
+</div>
 
-        <div class="cards">
-            <div class="card">
-                <div class="card-number">01</div>
-                <h3>Furniture Manufacturing</h3>
-                <p>State-of-the-art manufacturing facilities producing high-quality wooden and steel furniture for various applications.</p>
-            </div>
 
-            <div class="card">
-                <div class="card-number">02</div>
-                <h3>Interior Design & Works</h3>
-                <p>Professional interior design services and implementation for offices, schools, hospitals, and institutional spaces.</p>
-            </div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-            <div class="card">
-                <div class="card-number">03</div>
-                <h3>Bulk Supply & Trading</h3>
-                <p>Reliable bulk furniture supply and trading services meeting the requirements of government and private sector clients.</p>
-            </div>
-        </div>
-    </div>
+<section
+class="section"
+id="about"
+>
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="eyebrow">
+01 / THE COMPANY
+</div>
+
+<h2>
+Practical expertise.
+<br>
+<span class="gold">
+One clear direction.
+</span>
+</h2>
+
+</div>
+
+
+<p>
+
+Runya Ventures Private Limited is a newly incorporated company built on the foundation of experienced business leadership and practical expertise across product development, technical services, operations, sales, and client management.
+
+</p>
+
+</div>
+
+
+<div class="company-grid reveal">
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+OUR APPROACH
+</div>
+
+<h3>
+From requirement to delivery.
+</h3>
+
+<p>
+
+Our approach is simple: understand the requirement, deliver the right solution, maintain quality, and support the client beyond the sale.
+
+</p>
+
+
+<div class="address">
+
+<strong>
+Core Focus
+</strong>
+
+Furniture • Interior Works • Hospital Furniture • Indoor &amp; Outdoor Furniture • Bulk Furniture • Steel + Wooden Furniture
+
+</div>
+
+</div>
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+BUILT AROUND
+</div>
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<small>
+Furniture
+</small>
+
+<strong>
+Steel &amp; Wooden
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Spaces
+</small>
+
+<strong>
+Indoor &amp; Outdoor
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Healthcare
+</small>
+
+<strong>
+Hospital Furniture
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Scale
+</small>
+
+<strong>
+Bulk Supply
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="about">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow">About us</div>
-                <h2>Who We Are</h2>
-            </div>
-            <p>Runya Ventures Private Limited is a newly incorporated private limited company based in Raipur, Chhattisgarh, specializing in furniture manufacturing, trading, and supply.</p>
-        </div>
 
-        <div class="company-grid">
-            <div class="info-panel">
-                <p>Founded with a commitment to excellence, Runya Ventures serves government institutions, schools, offices, hospitals, and businesses throughout India. Our team combines traditional craftsmanship with modern manufacturing techniques to deliver superior quality products.</p>
+<!-- =====================================================
+     SOLUTIONS
+===================================================== -->
 
-                <div class="facts">
-                    <div class="fact">
-                        <small>Location</small>
-                        <strong>Raipur, Chhattisgarh</strong>
-                    </div>
-                    <div class="fact">
-                        <small>Sector</small>
-                        <strong>Furniture & Interiors</strong>
-                    </div>
-                </div>
+<section
+class="section"
+id="solutions"
+>
 
-                <div class="address">
-                    <strong>Headquarters</strong>
-                    Raipur, Chhattisgarh, India
-                </div>
-            </div>
+<div class="container">
 
-            <div class="info-panel">
-                <h3>Our Mission</h3>
-                <p>To provide premium quality furniture and interior solutions that enhance spaces while maintaining the highest standards of craftsmanship and customer satisfaction.</p>
 
-                <h3 style="margin-top:30px;">Our Vision</h3>
-                <p>To become a leading furniture manufacturer and supplier recognized for innovation, quality, and reliability across India's institutional and commercial sectors.</p>
-            </div>
-        </div>
-    </div>
+<div class="section-head reveal">
+
+<div>
+
+<div class="eyebrow">
+02 / SOLUTIONS
+</div>
+
+<h2>
+Designed around
+<br>
+<span class="gold">
+your requirement.
+</span>
+</h2>
+
+</div>
+
+
+<p>
+
+Our product and service portfolio covers furniture, healthcare furniture, interior works, bulk requirements, steel and wooden furniture, and client support.
+
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<article class="card reveal">
+
+<div class="card-number">
+01 — FURNITURE
+</div>
+
+<h3>
+Furniture Solutions
+</h3>
+
+<p>
+
+Steel, wooden, indoor, outdoor and customized furniture solutions designed around practical requirements.
+
+</p>
+
+</article>
+
+
+<article class="card reveal">
+
+<div class="card-number">
+02 — HEALTHCARE
+</div>
+
+<h3>
+Hospital Furniture
+</h3>
+
+<p>
+
+Furniture and equipment solutions designed for healthcare and hospital environments with a focus on functionality.
+
+</p>
+
+</article>
+
+
+<article class="card reveal">
+
+<div class="card-number">
+03 — INTERIORS
+</div>
+
+<h3>
+Interior Works
+</h3>
+
+<p>
+
+Interior furnishing and space-focused solutions for residential, commercial, institutional, healthcare and professional spaces.
+
+</p>
+
+</article>
+
+
+<article class="card reveal">
+
+<div class="card-number">
+04 — BULK
+</div>
+
+<h3>
+Bulk Furniture Supply
+</h3>
+
+<p>
+
+Large-volume furniture requirements for institutions, organizations, commercial spaces and professional projects.
+
+</p>
+
+</article>
+
+
+<article class="card reveal">
+
+<div class="card-number">
+05 — MATERIALS
+</div>
+
+<h3>
+Steel + Wooden Furniture
+</h3>
+
+<p>
+
+Durable furniture solutions combining practical design, strength and functionality across different requirements.
+
+</p>
+
+</article>
+
+
+<article class="card reveal">
+
+<div class="card-number">
+06 — SUPPORT
+</div>
+
+<h3>
+Service &amp; Support
+</h3>
+
+<p>
+
+Client coordination, technical assistance, operations and after-sales support as part of the overall service experience.
+
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="team">
-    <div class="container">
-        <div class="section-head">
-            <div>
-                <div class="eyebrow">Leadership</div>
-                <h2>Our Team</h2>
-            </div>
-            <p>Meet the experienced professionals driving Runya Ventures' mission to deliver exceptional furniture and interior solutions.</p>
-        </div>
 
-        <div class="directors">
-            <div class="director">
-                <div class="director-photo">
-                    <img src="images/ishan-kashyap.jpg" alt="Ishan Kashyap">
-                </div>
-                <div class="director-info">
-                    <div class="role">Territory Director</div>
-                    <h3>Ishan Kashyap</h3>
-                    <p>Leading territorial expansion and market development across key regions with strategic vision and execution.</p>
-                    <ul>
-                        <li>Regional Strategy</li>
-                        <li>Market Expansion</li>
-                        <li>Stakeholder Management</li>
-                    </ul>
-                </div>
-            </div>
+<!-- =====================================================
+     COMPANY DETAILS
+===================================================== -->
 
-            <div class="director">
-                <div class="director-photo">
-                    <img src="images/vivek-kashyap.jpg" alt="Vivek Kashyap">
-                </div>
-                <div class="director-info">
-                    <div class="role">Primary Director</div>
-                    <h3>Vivek Kashyap</h3>
-                    <p>Visionary leader steering Runya Ventures' strategic direction and overseeing all business operations.</p>
-                    <ul>
-                        <li>Strategic Planning</li>
-                        <li>Business Development</li>
-                        <li>Operations Oversight</li>
-                    </ul>
-                </div>
-            </div>
+<section
+class="section"
+id="company"
+>
 
-            <div class="director">
-                <div class="director-photo">
-                    <img src="images/vishesh-kashyap.jpg" alt="Vishesh Kashyap">
-                </div>
-                <div class="director-info">
-                    <div class="role">Secondary Director</div>
-                    <h3>Vishesh Kashyap</h3>
-                    <p>Creative innovator driving product excellence and interior design solutions for evolving market needs.</p>
-                    <ul>
-                        <li>Product Design</li>
-                        <li>Quality Assurance</li>
-                        <li>Innovation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="eyebrow">
+03 / COMPANY PROFILE
+</div>
+
+<h2>
+Young company.
+<br>
+<span class="gold">
+Experienced leadership.
+</span>
+</h2>
+
+</div>
+
+
+<p>
+
+Runya Ventures combines a new corporate structure with directors bringing practical expertise across finance, client management, sales, marketing, operations, manufacturing, stock management and trade.
+
+</p>
+
+</div>
+
+
+<div class="company-grid reveal">
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+CORPORATE DETAILS
+</div>
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<small>
+Legal Name
+</small>
+
+<strong>
+RUNYA VENTURES PRIVATE LIMITED
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+CIN
+</small>
+
+<strong>
+U46493CT2026PTC020873
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Incorporated
+</small>
+
+<strong>
+06 August 2026
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Company Status
+</small>
+
+<strong>
+Active
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Authorized Capital
+</small>
+
+<strong>
+₹10,00,000
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Paid-up Capital
+</small>
+
+<strong>
+₹1,00,000
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Category
+</small>
+
+<strong>
+Company Limited by Shares
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Sub-category
+</small>
+
+<strong>
+Non-Government Company
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Class
+</small>
+
+<strong>
+Private
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Listing
+</small>
+
+<strong>
+Unlisted
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Business Activity
+</small>
+
+<strong>
+Wholesale of Furniture and Fixtures
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+State
+</small>
+
+<strong>
+Chhattisgarh
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+GST DETAILS
+</div>
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<small>
+GSTIN
+</small>
+
+<strong>
+22AAQCR1838J1Z4
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Trade Name
+</small>
+
+<strong>
+RUNYA VENTURES PRIVATE LIMITED
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Constitution
+</small>
+
+<strong>
+Private Limited Company
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Registration Type
+</small>
+
+<strong>
+Regular
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+GST Registration
+</small>
+
+<strong>
+27 August 2026
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Validity
+</small>
+
+<strong>
+From 27 August 2026
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Additional Places
+</small>
+
+<strong>
+0
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+GST State
+</small>
+
+<strong>
+Chhattisgarh
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- REGISTERED ADDRESS -->
+
+<div
+class="info-panel reveal"
+style="margin-top:20px;"
+>
+
+<div class="eyebrow">
+REGISTERED / PRINCIPAL BUSINESS ADDRESS
+</div>
+
+<h3>
+Raipur, Chhattisgarh
+</h3>
+
+
+<p>
+
+MD189, Dharsiwa Marg, Raita, Koora, Raipur, Chhattisgarh, India — 493221
+
+</p>
+
+
+<div class="address">
+
+<strong>
+GST Principal Place of Business
+</strong>
+
+Building No./Flat No.: MD189<br>
+Road/Street: Dharsiwa Marg<br>
+Nearby Landmark: Raita<br>
+City/Town/Village: Koora<br>
+District: Raipur<br>
+State: Chhattisgarh<br>
+PIN: 493221
+
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
-<section class="section" id="contact">
-    <div class="container">
-        <div class="cta">
-            <h2>Ready to Transform Your Space?</h2>
-            <p>Contact Runya Ventures today for premium furniture and interior solutions tailored to your needs.</p>
-            <div class="hero-actions">
-                <button class="btn btn-primary">Contact Us</button>
-                <button class="btn btn-dark">Request Quote</button>
-            </div>
-        </div>
-    </div>
+
+<!-- =====================================================
+     LEADERSHIP
+===================================================== -->
+
+<section
+class="section"
+id="directors"
+>
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="eyebrow">
+04 / LEADERSHIP
+</div>
+
+<h2>
+Three directors.
+<br>
+<span class="gold">
+Different strengths.
+</span>
+</h2>
+
+</div>
+
+
+<p>
+
+A complementary leadership structure covering finance, clients, sales, marketing, operations, after-sales service, manufacturing, stock, trade and internal operations.
+
+</p>
+
+</div>
+
+
+<div class="directors">
+
+
+<!-- VIVEK -->
+
+<article
+class="director primary reveal"
+>
+
+<div class="director-photo">
+
+<img
+src="images/vivek-kashyap.jpg"
+alt="Vivek Kashyap — Director 1 Primary"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 1 — Primary
+</div>
+
+<h3>
+Vivek Kashyap
+</h3>
+
+<p>
+
+Businessman with a Diploma in Electrical Engineering.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Client handling
+</li>
+
+<li>
+<b>Focus:</b>
+Finance management
+</li>
+
+<li>
+<b>Focus:</b>
+Cash-flow management
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+<!-- VISHESH -->
+
+<article
+class="director reveal"
+>
+
+<div class="director-photo">
+
+<img
+src="images/vishesh-kashyap.jpg"
+alt="Vishesh Kashyap — Director 2 Secondary"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 2 — Secondary
+</div>
+
+<h3>
+Vishesh Kashyap
+</h3>
+
+<p>
+
+Businessman with a Mechanical Engineering background.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Client management
+</li>
+
+<li>
+<b>Focus:</b>
+Promotion, sales &amp; marketing
+</li>
+
+<li>
+<b>Focus:</b>
+Operations &amp; after-sales service
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+<!-- ISHAN -->
+
+<article
+class="director reveal"
+>
+
+<div class="director-photo">
+
+<img
+src="images/ishan-kashyap.jpg"
+alt="Ishan Kashyap — Director 3 Territory"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 3 — Territory
+</div>
+
+<h3>
+Ishan Kashyap
+</h3>
+
+<p>
+
+Businessman with a Civil Engineering background.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Stock management
+</li>
+
+<li>
+<b>Focus:</b>
+Manufacturing &amp; trade
+</li>
+
+<li>
+<b>Focus:</b>
+Internal operations
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+class="section"
+id="contact"
+>
+
+<div class="container">
+
+
+<div class="contact-grid reveal">
+
+
+<div class="contact-card">
+
+<div class="eyebrow">
+CONTACT
+</div>
+
+<h3>
+Let's discuss your requirement.
+</h3>
+
+<p>
+
+Connect with Runya Ventures for furniture, interior works, hospital furniture, bulk supply, indoor &amp; outdoor furniture and steel + wooden furniture requirements.
+
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="eyebrow">
+CALL / WHATSAPP
+</div>
+
+
+<div class="contact-number">
+
+<span>
+7974052001
+</span>
+
+<div class="contact-actions">
+
+<a
+href="tel:+917974052001"
+>
+Call
+</a>
+
+<a
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-number">
+
+<span>
+9300694128
+</span>
+
+<div class="contact-actions">
+
+<a
+href="tel:+919300694128"
+>
+Call
+</a>
+
+<a
+href="https://wa.me/919300694128"
+target="_blank"
+rel="noopener"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="cta reveal">
+
+<div class="eyebrow">
+05 / LET'S WORK TOGETHER
+</div>
+
+
+<h2>
+
+Have a requirement?
+<br>
+
+<span class="gold">
+Let's build the right solution.
+</span>
+
+</h2>
+
+
+<p>
+
+Understand the requirement. Deliver the right solution. Maintain quality. Support beyond the sale.
+
+</p>
+
+
+<div class="hero-actions">
+
+
+<a
+class="btn btn-primary"
+href="tel:+917974052001"
+>
+☎ 7974052001
+</a>
+
+
+<a
+class="btn btn-dark"
+href="tel:+919300694128"
+>
+☎ 9300694128
+</a>
+
+
+<a
+class="btn btn-dark"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+◉ WhatsApp
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div>
-                <div class="brand">
-                    <img src="images/runya-logo.jpeg" alt="Runya Ventures">
-                    <span>RUNYA VENTURES</span>
-                </div>
-                <p class="footer-note">Premium Furniture & Interior Solutions</p>
-            </div>
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#team">Team</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Privacy</a>
-            </div>
-        </div>
-    </div>
-</footer>
 
-<div class="floating-actions">
-    <a href="https://wa.me/919876543210" class="float-btn" title="WhatsApp">💬</a>
-    <a href="tel:+919876543210" class="float-btn" title="Call">☎️</a>
-    <a href="mailto:info@runyaventures.com" class="float-btn" title="Email">✉️</a>
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div>
+
+<a
+class="brand"
+href="#home"
+>
+
+<img
+src="images/runya-logo.jpeg"
+alt="Runya Ventures logo"
+>
+
+<span>
+RUNYA VENTURES
+</span>
+
+</a>
+
+
+<div class="footer-note">
+
+RUNYA VENTURES PRIVATE LIMITED
+
+<br>
+
+Furniture • Interiors • Hospital Furniture • Bulk Supply • Steel + Wooden Furniture
+
 </div>
 
+</div>
+
+
+<div class="footer-links">
+
+<a href="#about">
+About
+</a>
+
+<a href="#solutions">
+Solutions
+</a>
+
+<a href="#company">
+Company
+</a>
+
+<a href="#directors">
+Leadership
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-details">
+
+
+<div>
+
+<strong>
+CIN
+</strong>
+
+U46493CT2026PTC020873
+
+</div>
+
+
+<div>
+
+<strong>
+GSTIN
+</strong>
+
+22AAQCR1838J1Z4
+
+</div>
+
+
+<div>
+
+<strong>
+Registered Office
+</strong>
+
+MD189, Dharsiwa Marg, Raita, Koora, Raipur, Chhattisgarh — 493221
+
+</div>
+
+
+</div>
+
+
+<div
+class="footer-note"
+style="margin-top:25px;"
+>
+
+© 2026 Runya Ventures Private Limited. All rights reserved.
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     FLOATING CONTACT
+===================================================== -->
+
+<div class="floating-actions">
+
+
+<a
+class="float-btn wa"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+aria-label="WhatsApp Runya Ventures"
+title="WhatsApp"
+>
+◉
+</a>
+
+
+<a
+class="float-btn"
+href="tel:+917974052001"
+aria-label="Call Runya Ventures"
+title="Call"
+>
+☎
+</a>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-// Animated particles background
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
 function createParticles(){
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
-    
-    for(let i = 0; i < particleCount; i++){
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        const size = Math.random() * 6 + 2;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        
-        const xPos = Math.random() * 100;
-        particle.style.left = xPos + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        
-        const duration = Math.random() * 8 + 8;
-        particle.style.setProperty('--duration', duration + 's');
-        
-        const tx = (Math.random() - 0.5) * 200;
-        particle.style.setProperty('--tx', tx + 'px');
-        
-        particle.style.animationDuration = duration + 's';
-        particle.style.animationDelay = Math.random() * 2 + 's';
-        
-        particlesContainer.appendChild(particle);
+
+    const container =
+        document.getElementById("particles");
+
+    const count = 50;
+
+    for(
+        let i = 0;
+        i < count;
+        i++
+    ){
+
+        const particle =
+            document.createElement("div");
+
+        particle.className =
+            "particle";
+
+        const size =
+            Math.random() * 5 + 2;
+
+        particle.style.width =
+            size + "px";
+
+        particle.style.height =
+            size + "px";
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+        particle.style.top =
+            Math.random() * 100 + "%";
+
+        const duration =
+            Math.random() * 8 + 8;
+
+        particle.style.animationDuration =
+            duration + "s";
+
+        particle.style.animationDelay =
+            Math.random() * 5 + "s";
+
+        const tx =
+            (Math.random() - .5) * 200;
+
+        particle.style.setProperty(
+            "--tx",
+            tx + "px"
+        );
+
+        container.appendChild(
+            particle
+        );
     }
 }
 
 createParticles();
 
-// Mouse glow effect
-document.addEventListener('mousemove', (e) => {
-    const glow = document.querySelector('.cursor-glow');
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+
+/* =====================================================
+   CURSOR GLOW
+===================================================== */
+
+const glow =
+    document.getElementById(
+        "cursorGlow"
+    );
+
+window.addEventListener(
+    "pointermove",
+    function(e){
+
+        glow.style.left =
+            e.clientX + "px";
+
+        glow.style.top =
+            e.clientY + "px";
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+document
+.querySelectorAll(".navlinks a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            document
+            .querySelector(".navlinks")
+            .classList
+            .remove("mobile-open");
+
+        }
+    );
+
 });
 
-// Mobile menu toggle
-document.querySelector('.menu').addEventListener('click', () => {
-    const navlinks = document.querySelector('.navlinks');
-    navlinks.style.display = navlinks.style.display === 'flex' ? 'none' : 'flex';
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+                function(entry){
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                        .classList
+                        .add("visible");
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(function(element){
+
+    observer.observe(
+        element
+    );
+
 });
 
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e){
-        const href = this.getAttribute('href');
-        if(href !== '#'){
+
+/* =====================================================
+   CARD TILT EFFECT
+===================================================== */
+
+document
+.querySelectorAll(".card,.director")
+.forEach(function(card){
+
+    card.addEventListener(
+        "pointermove",
+        function(e){
+
+            if(
+                window.innerWidth < 900
+            ) return;
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                (e.clientX - rect.left)
+                / rect.width
+                - .5;
+
+            const y =
+                (e.clientY - rect.top)
+                / rect.height
+                - .5;
+
+            card.style.transform =
+                `
+                perspective(900px)
+                rotateX(${y * -3}deg)
+                rotateY(${x * 3}deg)
+                translateY(-8px)
+                `;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "pointerleave",
+        function(){
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   PREVENT HASH JUMP FOR EMPTY LINKS
+===================================================== */
+
+document
+.querySelectorAll('a[href="#"]')
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(e){
+
             e.preventDefault();
-            const element = document.querySelector(href);
-            if(element){
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+
         }
-    });
+    );
+
 });
 
-// Intersection Observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.style.animation = `${entry.target.style.getPropertyValue('--animation')} forwards`;
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card, .director, .info-panel').forEach(el => {
-    observer.observe(el);
-});
 </script>
 
 </body>
