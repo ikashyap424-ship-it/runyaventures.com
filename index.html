@@ -111,6 +111,96 @@ p{
 
 
 /* =========================
+   ANIMATED BACKGROUND ELEMENTS
+========================= */
+
+.bg-particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:rgba(215,180,106,.3);
+    border-radius:50%;
+    animation: float-particle linear infinite;
+}
+
+@keyframes float-particle{
+    0%{
+        opacity:0;
+        transform:translateY(100vh) translateX(0) scale(1);
+    }
+    10%{
+        opacity:1;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-100vh) translateX(var(--tx)) scale(0);
+    }
+}
+
+.gradient-orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    pointer-events:none;
+    z-index:0;
+}
+
+.orb-1{
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(215,180,106,.15) 0%, transparent 70%);
+    top:10%;
+    right:-200px;
+    animation: orb-move-1 8s ease-in-out infinite;
+}
+
+.orb-2{
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+    bottom:10%;
+    left:-150px;
+    animation: orb-move-2 10s ease-in-out infinite;
+}
+
+.orb-3{
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle, rgba(215,180,106,.1) 0%, transparent 70%);
+    top:50%;
+    left:50%;
+    animation: orb-move-3 12s ease-in-out infinite;
+}
+
+@keyframes orb-move-1{
+    0%, 100%{ transform: translate(0, 0); }
+    50%{ transform: translate(-100px, 100px); }
+}
+
+@keyframes orb-move-2{
+    0%, 100%{ transform: translate(0, 0); }
+    50%{ transform: translate(150px, -100px); }
+}
+
+@keyframes orb-move-3{
+    0%, 100%{ transform: translate(0, 0); }
+    50%{ transform: translate(-80px, 80px); }
+}
+
+/* =========================
    BUTTONS
 ========================= */
 
@@ -131,6 +221,25 @@ p{
 
     font-weight:700;
     font-size:.9rem;
+    
+    position:relative;
+    overflow:hidden;
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+    animation: shine-btn 3s infinite;
+}
+
+@keyframes shine-btn{
+    0%{ left:-100%; }
+    100%{ left:100%; }
 }
 
 .btn:hover{
@@ -140,13 +249,20 @@ p{
         rgba(215,180,106,.65);
 
     box-shadow:
-        0 14px 35px rgba(0,0,0,.3);
+        0 14px 35px rgba(0,0,0,.3),
+        0 0 20px rgba(215,180,106,.2);
 }
 
 .btn-primary{
     background:var(--gold);
     color:#12110d;
     border-color:var(--gold);
+}
+
+.btn-primary:hover{
+    box-shadow:
+        0 14px 35px rgba(215,180,106,.3),
+        0 0 30px rgba(215,180,106,.4);
 }
 
 .btn-dark{
@@ -161,6 +277,7 @@ p{
 .section{
     padding:105px 0;
     position:relative;
+    z-index:2;
 }
 
 .section-head{
@@ -169,12 +286,23 @@ p{
     gap:40px;
     align-items:end;
     margin-bottom:50px;
+    animation: slide-in-left .8s ease-out;
 }
 
 .section-head p{
     max-width:520px;
 }
 
+@keyframes slide-in-left{
+    from{
+        opacity:0;
+        transform:translateX(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
 
 /* =========================
    CURSOR LIGHT
@@ -241,6 +369,7 @@ nav{
 
     font-weight:900;
     letter-spacing:.08em;
+    animation: pop-in .6s cubic-bezier(.34, 1.56, .64, 1);
 }
 
 .brand img{
@@ -250,6 +379,12 @@ nav{
     object-fit:contain;
 
     border-radius:12px;
+    
+    transition: transform .3s ease;
+}
+
+.brand:hover img{
+    transform: rotate(5deg) scale(1.1);
 }
 
 .brand span{
@@ -266,10 +401,27 @@ nav{
     font-size:.82rem;
     color:#c8c8c3;
     transition:.25s;
+    position:relative;
+    padding-bottom:5px;
+}
+
+.navlinks a::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0;
+    height:2px;
+    background:var(--gold2);
+    transition:.3s ease;
 }
 
 .navlinks a:hover{
     color:var(--gold2);
+}
+
+.navlinks a:hover::after{
+    width:100%;
 }
 
 .nav-cta{
@@ -290,6 +442,16 @@ nav{
     cursor:pointer;
 }
 
+@keyframes pop-in{
+    0%{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
 /* =========================
    HERO
@@ -362,15 +524,26 @@ nav{
     justify-content:center;
     margin-bottom:30px;
     animation:
+        float-logo 3s ease-in-out infinite,
         heroIn 1.2s
         cubic-bezier(.2,.8,.2,1)
         both;
+}
+
+@keyframes float-logo{
+    0%, 100%{
+        transform: translateY(0px) rotateZ(0deg);
+    }
+    50%{
+        transform: translateY(-20px) rotateZ(2deg);
+    }
 }
 
 .hero-logo img{
     height:120px;
     width:auto;
     object-fit:contain;
+    filter: drop-shadow(0 10px 30px rgba(215,180,106,.2));
 }
 
 .hero h1{
@@ -478,7 +651,8 @@ nav{
     animation:
         orb 12s
         ease-in-out
-        infinite;
+        infinite,
+        orb-glow 3s ease-in-out infinite;
 }
 
 .hero-orb:before,
@@ -513,6 +687,15 @@ nav{
     }
 }
 
+@keyframes orb-glow{
+    0%, 100%{
+        box-shadow: 0 0 30px rgba(215,180,106,.1);
+    }
+    50%{
+        box-shadow: 0 0 60px rgba(215,180,106,.2);
+    }
+}
+
 .float-tag{
     position:absolute;
 
@@ -539,7 +722,8 @@ nav{
     animation:
         float 5s
         ease-in-out
-        infinite;
+        infinite,
+        pulse-tag 2s ease-in-out infinite;
 }
 
 @keyframes float{
@@ -549,6 +733,14 @@ nav{
     }
 }
 
+@keyframes pulse-tag{
+    0%, 100%{
+        box-shadow: 0 0 10px rgba(215,180,106,.2);
+    }
+    50%{
+        box-shadow: 0 0 20px rgba(215,180,106,.4);
+    }
+}
 
 /* =========================
    TICKER
@@ -564,6 +756,9 @@ nav{
         1px solid var(--line);
 
     background:#0b0c0f;
+    
+    position:relative;
+    z-index:2;
 }
 
 .ticker-track{
@@ -591,6 +786,7 @@ nav{
 
 .ticker b{
     color:var(--gold2);
+    font-weight:800;
 }
 
 @keyframes ticker{
@@ -637,6 +833,23 @@ nav{
     transition:
         .45s
         cubic-bezier(.2,.8,.2,1);
+    
+    animation: card-appear .8s ease-out both;
+}
+
+.card:nth-child(1){ animation-delay: .1s; }
+.card:nth-child(2){ animation-delay: .2s; }
+.card:nth-child(3){ animation-delay: .3s; }
+
+@keyframes card-appear{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card:before{
@@ -656,14 +869,26 @@ nav{
         rgba(215,180,106,.12);
 
     filter:blur(20px);
+    
+    transition: all .3s ease;
+}
+
+.card:hover:before{
+    width:250px;
+    height:250px;
+    background:rgba(215,180,106,.2);
 }
 
 .card:hover{
     transform:
-        translateY(-10px);
+        translateY(-15px);
 
     border-color:
         rgba(215,180,106,.35);
+    
+    box-shadow:
+        0 20px 60px rgba(215,180,106,.15),
+        inset 0 1px 0 rgba(255,255,255,.1);
 }
 
 .card-number{
@@ -674,6 +899,21 @@ nav{
     letter-spacing:.18em;
 
     margin-bottom:65px;
+    
+    font-weight:800;
+    
+    animation: count-up 1s ease-out .3s both;
+}
+
+@keyframes count-up{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card h3{
@@ -710,6 +950,30 @@ nav{
 
     background:
         rgba(255,255,255,.035);
+    
+    animation: slide-in-left .8s ease-out;
+    
+    backdrop-filter:blur(10px);
+}
+
+.company-grid > :nth-child(2){
+    animation: slide-in-right .8s ease-out;
+}
+
+@keyframes slide-in-right{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.info-panel:hover{
+    border-color:rgba(215,180,106,.3);
+    box-shadow: 0 0 20px rgba(215,180,106,.1);
 }
 
 .facts{
@@ -730,6 +994,12 @@ nav{
     background:#0c0e11;
 
     padding:22px;
+    
+    transition: all .3s ease;
+}
+
+.fact:hover{
+    background:rgba(215,180,106,.05);
 }
 
 .fact small{
@@ -761,6 +1031,13 @@ nav{
 
     background:
         rgba(215,180,106,.045);
+    
+    transition: all .3s ease;
+}
+
+.address:hover{
+    background:rgba(215,180,106,.08);
+    border-left-color:var(--gold2);
 }
 
 .address strong{
@@ -796,14 +1073,35 @@ nav{
     transition:
         .45s
         cubic-bezier(.2,.8,.2,1);
+    
+    animation: scale-in .8s ease-out both;
+}
+
+.director:nth-child(1){ animation-delay: .1s; }
+.director:nth-child(2){ animation-delay: .2s; }
+.director:nth-child(3){ animation-delay: .3s; }
+
+@keyframes scale-in{
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .director:hover{
     transform:
-        translateY(-8px);
+        translateY(-12px);
 
     border-color:
         rgba(215,180,106,.35);
+    
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.4),
+        0 0 30px rgba(215,180,106,.15);
 }
 
 .director-photo{
@@ -821,6 +1119,23 @@ nav{
         );
 }
 
+.director-photo::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(45deg, transparent 30%, rgba(215,180,106,.1) 50%, transparent 70%);
+    animation: shine-photo 3s infinite;
+    z-index:1;
+}
+
+@keyframes shine-photo{
+    0%{ transform: translateX(-100%); }
+    100%{ transform: translateX(100%); }
+}
+
 .director-photo img{
     width:100%;
     height:100%;
@@ -834,7 +1149,7 @@ nav{
 
 .director:hover
 .director-photo img{
-    transform:scale(1.06);
+    transform:scale(1.1) rotate(2deg);
 }
 
 .director-info{
@@ -908,6 +1223,35 @@ nav{
     overflow:hidden;
 
     position:relative;
+    
+    animation: cta-pulse .6s ease-out;
+}
+
+@keyframes cta-pulse{
+    from{
+        opacity:0;
+        transform:scale(0.95);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.cta::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:radial-gradient(circle at 50% 0, rgba(215,180,106,.05) 0%, transparent 70%);
+    animation: cta-glow 3s ease-in-out infinite;
+}
+
+@keyframes cta-glow{
+    0%, 100%{ opacity:.5; }
+    50%{ opacity:1; }
 }
 
 .cta h2{
@@ -915,16 +1259,24 @@ nav{
 
     margin:
         0 auto 18px;
+    
+    position:relative;
+    z-index:1;
 }
 
 .cta p{
     max-width:650px;
 
     margin:auto;
+    
+    position:relative;
+    z-index:1;
 }
 
 .cta .hero-actions{
     justify-content:center;
+    position:relative;
+    z-index:1;
 }
 
 
@@ -941,6 +1293,9 @@ footer{
         1px solid var(--line);
 
     margin-top:50px;
+    
+    position:relative;
+    z-index:2;
 }
 
 .footer-grid{
@@ -969,6 +1324,17 @@ footer{
     font-size:.8rem;
 
     color:#999;
+}
+
+.footer-links a{
+    transition: all .3s ease;
+    padding:5px 0;
+    border-bottom:1px solid transparent;
+}
+
+.footer-links a:hover{
+    color:var(--gold2);
+    border-bottom-color:var(--gold2);
 }
 
 
@@ -1018,6 +1384,23 @@ footer{
     cursor:pointer;
 
     color:#999;
+    
+    animation: float-btn-pop .6s cubic-bezier(.34, 1.56, .64, 1) backwards;
+}
+
+.float-btn:nth-child(1){ animation-delay: .2s; }
+.float-btn:nth-child(2){ animation-delay: .3s; }
+.float-btn:nth-child(3){ animation-delay: .4s; }
+
+@keyframes float-btn-pop{
+    from{
+        opacity:0;
+        transform:scale(0) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
 .float-btn:hover{
@@ -1025,6 +1408,12 @@ footer{
 
     border-color:
         rgba(215,180,106,.5);
+    
+    transform:scale(1.1);
+    
+    box-shadow:
+        0 12px 35px rgba(215,180,106,.3),
+        0 0 20px rgba(215,180,106,.2);
 }
 
 @media (max-width:640px){
@@ -1037,12 +1426,29 @@ footer{
         display:block;
     }
 
+    .company-grid{
+        grid-template-columns:1fr;
+    }
+
+    .directors{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
 }
 
 </style>
 
 </head>
 <body>
+
+<div class="bg-particles" id="particles"></div>
+<div class="gradient-orb orb-1"></div>
+<div class="gradient-orb orb-2"></div>
+<div class="gradient-orb orb-3"></div>
 
 <div class="cursor-glow"></div>
 
@@ -1274,15 +1680,76 @@ footer{
 </div>
 
 <script>
+// Animated particles background
+function createParticles(){
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for(let i = 0; i < particleCount; i++){
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 6 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        const xPos = Math.random() * 100;
+        particle.style.left = xPos + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        const duration = Math.random() * 8 + 8;
+        particle.style.setProperty('--duration', duration + 's');
+        
+        const tx = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--tx', tx + 'px');
+        
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// Mouse glow effect
 document.addEventListener('mousemove', (e) => {
     const glow = document.querySelector('.cursor-glow');
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
 });
 
+// Mobile menu toggle
 document.querySelector('.menu').addEventListener('click', () => {
     const navlinks = document.querySelector('.navlinks');
     navlinks.style.display = navlinks.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href !== '#'){
+            e.preventDefault();
+            const element = document.querySelector(href);
+            if(element){
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.animation = `${entry.target.style.getPropertyValue('--animation')} forwards`;
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .director, .info-panel').forEach(el => {
+    observer.observe(el);
 });
 </script>
 
