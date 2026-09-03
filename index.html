@@ -4,38 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Runya Ventures Private Limited | Furniture & Institutional Solutions</title>
+<meta name="description" content="Runya Ventures Private Limited — Furniture, interior works, hospital furniture, indoor and outdoor furniture, bulk furniture supply, and steel and wooden furniture solutions.">
 
-<meta name="description"
-content="Runya Ventures Private Limited — furniture and fixture solutions based in Raipur, Chhattisgarh.">
+<meta name="theme-color" content="#08090b">
 
-<meta name="keywords"
-content="Runya Ventures, Runya Ventures Private Limited, furniture, fixtures, Raipur, Chhattisgarh">
+<title>Runya Ventures | Furniture & Interior Solutions</title>
 
 <style>
-/* =========================================================
-   RUNYA VENTURES — SINGLE FILE WEBSITE
-   ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* =========================
+   ROOT
+========================= */
 
 :root{
-    --bg:#080909;
-    --bg2:#101111;
-    --card:#141616;
-    --text:#f5f5f2;
-    --muted:#9a9d9b;
-    --line:rgba(255,255,255,.10);
-    --accent:#c9ff4a;
-    --accent2:#e7ff9a;
-    --dark:#090a09;
-    --max:1240px;
+    --bg:#08090b;
+    --bg2:#0d0f12;
+    --card:rgba(255,255,255,.055);
+    --line:rgba(255,255,255,.11);
+    --text:#f4f3ef;
+    --muted:#a7a7a2;
+    --gold:#d7b46a;
+    --gold2:#f0d18a;
+    --max:1180px;
+    --radius:24px;
 }
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -43,471 +40,42 @@ html{
 }
 
 body{
-    font-family:'DM Sans',sans-serif;
-    background:var(--bg);
+    background:
+        radial-gradient(
+            circle at 75% 10%,
+            rgba(215,180,106,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 55%,
+            rgba(255,255,255,.035),
+            transparent 25%
+        ),
+        var(--bg);
+
     color:var(--text);
-    overflow-x:hidden;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
     line-height:1.6;
+    overflow-x:hidden;
 }
 
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
-button{
-    font:inherit;
-}
-
-/* ---------- CURSOR GLOW ---------- */
-
-.cursor-glow{
-    position:fixed;
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(201,255,74,.10),
-        rgba(201,255,74,0) 68%
-    );
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    z-index:0;
-}
-
-/* ---------- BACKGROUND ---------- */
-
-.bg-grid{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.22;
-    background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size:60px 60px;
-    mask-image:linear-gradient(to bottom,black,transparent 80%);
-}
-
-/* ---------- NAVBAR ---------- */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:78px;
-    display:flex;
-    align-items:center;
-    z-index:1000;
-    transition:.35s ease;
-}
-
-.navbar.scrolled{
-    background:rgba(8,9,9,.78);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--line);
-}
-
-.nav-inner{
-    width:min(var(--max),92%);
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-family:'Manrope',sans-serif;
-    font-weight:800;
-    letter-spacing:-.5px;
-}
-
-.logo-mark{
-    width:38px;
-    height:38px;
-    border:1px solid rgba(201,255,74,.5);
-    border-radius:11px;
-    position:relative;
-    overflow:hidden;
-    transform:rotate(-8deg);
-}
-
-.logo-mark:before,
-.logo-mark:after{
-    content:"";
-    position:absolute;
-    background:var(--accent);
-    border-radius:20px;
-}
-
-.logo-mark:before{
-    width:10px;
-    height:28px;
-    left:9px;
-    top:5px;
-    transform:rotate(30deg);
-}
-
-.logo-mark:after{
-    width:8px;
-    height:20px;
-    right:7px;
-    bottom:4px;
-    transform:rotate(30deg);
-}
-
-.logo span{
-    font-size:19px;
-}
-
-.logo small{
+img{
+    max-width:100%;
     display:block;
-    color:var(--muted);
-    font-size:8px;
-    letter-spacing:2px;
-    font-weight:600;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:32px;
-}
-
-.nav-links a{
-    font-size:14px;
-    color:#c9cbc9;
-    position:relative;
-}
-
-.nav-links a:after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-7px;
-    width:0;
-    height:1px;
-    background:var(--accent);
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.nav-links a:hover:after{
-    width:100%;
-}
-
-.nav-btn{
-    padding:11px 18px;
-    border:1px solid rgba(201,255,74,.35);
-    border-radius:50px;
-    color:var(--accent)!important;
-}
-
-.menu-btn{
-    display:none;
-    border:0;
-    background:none;
-    color:white;
-    font-size:25px;
-}
-
-/* ---------- HERO ---------- */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    padding:130px 0 80px;
-    overflow:hidden;
-}
-
-.hero-inner{
-    width:min(var(--max),92%);
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    align-items:center;
-    gap:70px;
-    position:relative;
-    z-index:2;
-}
-
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    padding:7px 12px;
-    border:1px solid var(--line);
-    border-radius:50px;
-    color:#c8cbc8;
-    font-size:11px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    margin-bottom:26px;
-    background:rgba(255,255,255,.025);
-}
-
-.eyebrow i{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 14px var(--accent);
-}
-
-.hero h1{
-    font-family:'Manrope',sans-serif;
-    font-size:clamp(48px,7vw,91px);
-    line-height:.98;
-    letter-spacing:-5px;
-    max-width:850px;
-}
-
-.hero h1 .green{
-    color:var(--accent);
-}
-
-.hero-description{
-    color:var(--muted);
-    max-width:580px;
-    font-size:17px;
-    margin:28px 0 34px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:14px 22px;
-    border-radius:50px;
-    font-size:14px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:var(--accent);
-    color:var(--dark);
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(201,255,74,.15);
-}
-
-.btn-outline{
-    border:1px solid var(--line);
-    color:white;
-}
-
-.btn-outline:hover{
-    border-color:rgba(201,255,74,.5);
-    transform:translateY(-3px);
-}
-
-/* ---------- HERO VISUAL ---------- */
-
-.hero-visual{
-    height:580px;
-    position:relative;
-    perspective:1000px;
-}
-
-.orbit{
-    position:absolute;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
-
-.orbit.one{
-    width:500px;
-    height:500px;
-    animation:spin 22s linear infinite;
-}
-
-.orbit.two{
-    width:350px;
-    height:350px;
-    animation:spinReverse 17s linear infinite;
-}
-
-.orbit-dot{
-    position:absolute;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 25px var(--accent);
-}
-
-.orbit.one .orbit-dot{
-    top:40px;
-    left:50%;
-}
-
-.orbit.two .orbit-dot{
-    bottom:20px;
-    left:30px;
-}
-
-@keyframes spin{
-    to{transform:translate(-50%,-50%) rotate(360deg);}
-}
-
-@keyframes spinReverse{
-    to{transform:translate(-50%,-50%) rotate(-360deg);}
-}
-
-.furniture-object{
-    position:absolute;
-    width:330px;
-    height:220px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) rotateX(12deg) rotateZ(-7deg);
-    animation:floatObject 5s ease-in-out infinite;
-}
-
-.table-top{
-    position:absolute;
-    width:330px;
-    height:42px;
-    background:linear-gradient(135deg,#d7e0c1,#899274);
-    border-radius:7px;
-    top:55px;
-    left:0;
-    box-shadow:
-        0 35px 50px rgba(0,0,0,.5),
-        inset 0 1px 0 rgba(255,255,255,.5);
-}
-
-.table-edge{
-    position:absolute;
-    width:330px;
-    height:20px;
-    background:#5d654f;
-    top:97px;
-    left:0;
-    border-radius:0 0 6px 6px;
-}
-
-.leg{
-    position:absolute;
-    width:18px;
-    height:115px;
-    background:linear-gradient(90deg,#2c3029,#747b66,#292c27);
-    top:108px;
-    border-radius:4px;
-}
-
-.leg.l1{left:35px;}
-.leg.l2{right:35px;}
-
-@keyframes floatObject{
-    0%,100%{
-        transform:translate(-50%,-50%) rotateX(12deg) rotateZ(-7deg) translateY(0);
-    }
-    50%{
-        transform:translate(-50%,-50%) rotateX(12deg) rotateZ(-7deg) translateY(-18px);
-    }
-}
-
-.floating-card{
-    position:absolute;
-    background:rgba(20,22,22,.72);
-    backdrop-filter:blur(15px);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-.card-top{
-    top:55px;
-    right:0;
-    animation:floatSmall 4s ease-in-out infinite;
-}
-
-.card-bottom{
-    bottom:70px;
-    left:5px;
-    animation:floatSmall 5s ease-in-out infinite reverse;
-}
-
-.floating-card strong{
-    display:block;
-    font-family:'Manrope';
-    font-size:25px;
-}
-
-.floating-card span{
-    color:var(--muted);
-    font-size:11px;
-}
-
-@keyframes floatSmall{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-}
-
-/* ---------- TICKER ---------- */
-
-.ticker{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-    white-space:nowrap;
-    background:#0d0e0e;
-}
-
-.ticker-track{
-    display:inline-flex;
-    gap:40px;
-    padding:18px 0;
-    animation:ticker 24s linear infinite;
-}
-
-.ticker-item{
-    font-family:'Manrope';
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#8e928e;
-}
-
-.ticker-item b{
-    color:var(--accent);
-    margin-right:40px;
-}
-
-@keyframes ticker{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-}
-
-/* ---------- SECTIONS ---------- */
-
-.section{
-    padding:130px 0;
-    position:relative;
 }
 
 .container{
@@ -515,1250 +83,2412 @@ button{
     margin:auto;
 }
 
-.section-label{
-    color:var(--accent);
-    font-size:11px;
+.gold{
+    color:var(--gold2);
+}
+
+h1,h2,h3{
+    line-height:1.05;
+}
+
+h2{
+    font-size:clamp(2rem,5vw,4rem);
+    letter-spacing:-.04em;
+}
+
+p{
+    color:var(--muted);
+}
+
+.eyebrow{
+    color:var(--gold2);
     text-transform:uppercase;
-    letter-spacing:2px;
-    margin-bottom:18px;
+    letter-spacing:.2em;
+    font-size:.72rem;
+    font-weight:700;
+    margin-bottom:14px;
 }
 
-.section-title{
-    font-family:'Manrope';
-    font-size:clamp(36px,5vw,62px);
-    line-height:1.03;
-    letter-spacing:-3px;
-    max-width:780px;
-}
 
-.section-text{
-    color:var(--muted);
-    max-width:650px;
-    margin-top:22px;
-    font-size:16px;
-}
+/* =========================
+   BUTTONS
+========================= */
 
-/* ---------- ABOUT ---------- */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-    align-items:center;
-}
-
-.about-panel{
-    min-height:430px;
-    border:1px solid var(--line);
-    border-radius:28px;
-    padding:42px;
-    position:relative;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 80% 20%,rgba(201,255,74,.10),transparent 30%),
-        var(--card);
-}
-
-.about-panel:before{
-    content:"RV";
-    position:absolute;
-    font-family:'Manrope';
-    font-size:250px;
-    font-weight:800;
-    color:rgba(255,255,255,.025);
-    right:-20px;
-    bottom:-70px;
-}
-
-.about-stat{
-    position:relative;
-    z-index:2;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    margin-top:70px;
-}
-
-.stat{
-    border-top:1px solid var(--line);
-    padding-top:18px;
-}
-
-.stat strong{
-    display:block;
-    font-family:'Manrope';
-    font-size:35px;
-    color:var(--accent);
-}
-
-.stat span{
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* ---------- SERVICES ---------- */
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-    margin-top:60px;
-}
-
-.service-card{
-    min-height:300px;
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:24px;
-    background:linear-gradient(145deg,#151818,#0e1010);
-    transition:.45s cubic-bezier(.2,.8,.2,1);
-    position:relative;
-    overflow:hidden;
-}
-
-.service-card:hover{
-    transform:translateY(-10px) rotateX(2deg);
-    border-color:rgba(201,255,74,.30);
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
-}
-
-.service-number{
-    font-family:'Manrope';
-    color:#555a56;
-    font-size:13px;
-}
-
-.service-icon{
-    width:55px;
-    height:55px;
-    border-radius:16px;
-    border:1px solid var(--line);
-    display:flex;
+.btn{
+    display:inline-flex;
     align-items:center;
     justify-content:center;
-    font-size:22px;
-    margin:45px 0 28px;
-    background:rgba(255,255,255,.025);
+    gap:9px;
+
+    min-height:48px;
+    padding:0 20px;
+
+    border-radius:999px;
+    border:1px solid var(--line);
+
+    transition:
+        .35s cubic-bezier(.2,.8,.2,1);
+
+    font-weight:700;
+    font-size:.9rem;
 }
 
-.service-card h3{
-    font-family:'Manrope';
-    font-size:22px;
-    margin-bottom:12px;
+.btn:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(215,180,106,.65);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.3);
 }
 
-.service-card p{
-    color:var(--muted);
-    font-size:14px;
+.btn-primary{
+    background:var(--gold);
+    color:#12110d;
+    border-color:var(--gold);
 }
 
-.service-card:after{
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    background:var(--accent);
-    filter:blur(80px);
-    opacity:0;
-    transition:.4s;
-    right:-40px;
-    bottom:-40px;
+.btn-dark{
+    background:rgba(255,255,255,.04);
 }
 
-.service-card:hover:after{
-    opacity:.12;
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:105px 0;
+    position:relative;
 }
 
-/* ---------- COMPANY INFO ---------- */
-
-.info-section{
-    background:#0d0f0f;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-}
-
-.info-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-}
-
-.info-list{
-    margin-top:40px;
-}
-
-.info-row{
+.section-head{
     display:flex;
     justify-content:space-between;
-    gap:30px;
-    padding:19px 0;
-    border-bottom:1px solid var(--line);
-    font-size:14px;
+    gap:40px;
+    align-items:end;
+    margin-bottom:50px;
 }
 
-.info-row span:first-child{
-    color:#777c78;
+.section-head p{
+    max-width:520px;
 }
 
-.info-row span:last-child{
-    text-align:right;
-    color:#e4e6e3;
+
+/* =========================
+   CURSOR LIGHT
+========================= */
+
+.cursor-glow{
+    position:fixed;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,180,106,.10),
+            transparent 68%
+        );
+
+    mix-blend-mode:screen;
 }
 
-/* ---------- DIRECTORS ---------- */
 
-.directors{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:60px;
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:50;
+
+    background:
+        rgba(8,9,11,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
 }
 
-.director{
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:22px;
-    background:var(--card);
-    transition:.35s;
-}
+nav{
+    height:78px;
 
-.director:hover{
-    transform:translateY(-7px);
-    border-color:rgba(201,255,74,.25);
-}
-
-.director-avatar{
-    width:55px;
-    height:55px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:var(--accent);
-    color:#111;
-    font-family:'Manrope';
-    font-weight:800;
-    margin-bottom:25px;
+    justify-content:space-between;
 }
 
-.director h3{
-    font-family:'Manrope';
-    font-size:19px;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-weight:900;
+    letter-spacing:.08em;
 }
 
-.director p{
-    color:var(--muted);
-    font-size:13px;
-    margin-top:5px;
+.brand img{
+    width:48px;
+    height:48px;
+
+    object-fit:contain;
+
+    border-radius:12px;
 }
 
-/* ---------- CTA ---------- */
-
-.cta{
-    padding:120px 0;
+.brand span{
+    font-size:.9rem;
 }
 
-.cta-box{
-    border:1px solid rgba(201,255,74,.20);
-    border-radius:35px;
-    padding:80px;
+.navlinks{
+    display:flex;
+    gap:26px;
+    align-items:center;
+}
+
+.navlinks a{
+    font-size:.82rem;
+    color:#c8c8c3;
+    transition:.25s;
+}
+
+.navlinks a:hover{
+    color:var(--gold2);
+}
+
+.nav-cta{
+    display:flex;
+    gap:8px;
+}
+
+.menu{
+    display:none;
+
+    border:0;
+    background:none;
+
+    color:white;
+
+    font-size:1.6rem;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:grid;
+    place-items:center;
+
     position:relative;
+
     overflow:hidden;
-    background:
-        radial-gradient(circle at 80% 30%,rgba(201,255,74,.15),transparent 30%),
-        linear-gradient(135deg,#171a17,#0d0f0e);
+
+    padding-top:78px;
 }
 
-.cta-box h2{
-    font-family:'Manrope';
-    font-size:clamp(40px,6vw,75px);
-    line-height:1;
-    letter-spacing:-4px;
+.hero-grid{
+    position:absolute;
+    inset:0;
+
+    opacity:.18;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.06) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 82%
+        );
+
+    animation:gridMove 18s linear infinite;
+}
+
+@keyframes gridMove{
+    to{
+        background-position:
+            70px 70px;
+    }
+}
+
+.hero-inner{
+    position:relative;
+    z-index:2;
+
+    width:min(var(--max),92%);
+
+    margin:auto;
+}
+
+.hero-copy{
     max-width:850px;
 }
 
-.cta-box p{
-    color:var(--muted);
-    max-width:600px;
-    margin:25px 0 32px;
+.hero h1{
+    font-size:
+        clamp(
+            3.5rem,
+            9vw,
+            8.3rem
+        );
+
+    letter-spacing:-.075em;
+
+    margin-bottom:26px;
+
+    animation:
+        heroIn 1.2s
+        cubic-bezier(.2,.8,.2,1)
+        both;
 }
 
-/* ---------- FOOTER ---------- */
+.hero h1 span{
+    display:inline-block;
+
+    background:
+        linear-gradient(
+            110deg,
+            #fff,
+            var(--gold2),
+            #fff
+        );
+
+    background-size:220% auto;
+
+    color:transparent;
+
+    background-clip:text;
+
+    animation:
+        shine 5s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        background-position:
+            220% center;
+    }
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:
+            translateY(45px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.hero-copy>p{
+    font-size:1.08rem;
+    max-width:690px;
+
+    animation:
+        heroIn 1.2s .15s both;
+}
+
+.hero-actions{
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+
+    animation:
+        heroIn 1.2s .3s both;
+}
+
+
+/* Decorative Orb */
+
+.hero-orb{
+    position:absolute;
+
+    right:-8vw;
+    top:14%;
+
+    width:48vw;
+    height:48vw;
+
+    max-width:650px;
+    max-height:650px;
+
+    border:
+        1px solid
+        rgba(215,180,106,.2);
+
+    border-radius:50%;
+
+    animation:
+        orb 12s
+        ease-in-out
+        infinite;
+}
+
+.hero-orb:before,
+.hero-orb:after{
+    content:"";
+
+    position:absolute;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:50%;
+
+    inset:10%;
+
+    transform:rotate(25deg);
+}
+
+.hero-orb:after{
+    inset:22%;
+
+    transform:
+        rotate(-35deg);
+}
+
+@keyframes orb{
+    50%{
+        transform:
+            translateY(-20px)
+            rotate(12deg);
+    }
+}
+
+.float-tag{
+    position:absolute;
+
+    right:11%;
+    bottom:16%;
+
+    padding:14px 18px;
+
+    background:
+        rgba(12,13,16,.78);
+
+    border:
+        1px solid
+        var(--line);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:16px;
+
+    font-size:.75rem;
+
+    color:#ddd;
+
+    animation:
+        float 5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:
+            translateY(-14px);
+    }
+}
+
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker{
+    overflow:hidden;
+
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
+
+    background:#0b0c0f;
+}
+
+.ticker-track{
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        ticker 28s
+        linear
+        infinite;
+}
+
+.ticker span{
+    padding:17px 30px;
+
+    color:#bdbdb7;
+
+    font-size:.72rem;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+}
+
+.ticker b{
+    color:var(--gold2);
+}
+
+@keyframes ticker{
+    to{
+        transform:
+            translateX(-50%);
+    }
+}
+
+
+/* =========================
+   SOLUTION CARDS
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        .45s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.card:before{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    right:-80px;
+    top:-80px;
+
+    background:
+        rgba(215,180,106,.12);
+
+    filter:blur(20px);
+}
+
+.card:hover{
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(215,180,106,.35);
+}
+
+.card-number{
+    font-size:.7rem;
+
+    color:var(--gold2);
+
+    letter-spacing:.18em;
+
+    margin-bottom:65px;
+}
+
+.card h3{
+    font-size:1.5rem;
+
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:.9rem;
+}
+
+
+/* =========================
+   COMPANY
+========================= */
+
+.company-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    gap:20px;
+}
+
+.info-panel{
+    border:
+        1px solid var(--line);
+
+    border-radius:var(--radius);
+
+    padding:34px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.facts{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:1px;
+
+    background:
+        var(--line);
+
+    margin-top:28px;
+}
+
+.fact{
+    background:#0c0e11;
+
+    padding:22px;
+}
+
+.fact small{
+    display:block;
+
+    color:#777;
+
+    font-size:.7rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    margin-bottom:6px;
+}
+
+.fact strong{
+    font-size:.95rem;
+}
+
+.address{
+    margin-top:20px;
+
+    padding:20px;
+
+    border-left:
+        2px solid
+        var(--gold);
+
+    background:
+        rgba(215,180,106,.045);
+}
+
+.address strong{
+    display:block;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   DIRECTORS
+========================= */
+
+.directors{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.director{
+    border:
+        1px solid var(--line);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    background:#0d0f12;
+
+    transition:
+        .45s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.director:hover{
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(215,180,106,.35);
+}
+
+.director-photo{
+    height:350px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #191a1d,
+            #090a0c
+        );
+}
+
+.director-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.director:hover
+.director-photo img{
+    transform:scale(1.06);
+}
+
+.director-info{
+    padding:25px;
+}
+
+.director-info .role{
+    color:var(--gold2);
+
+    font-size:.7rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    font-weight:800;
+}
+
+.director-info h3{
+    font-size:1.55rem;
+
+    margin:7px 0 12px;
+}
+
+.director-info p{
+    font-size:.86rem;
+
+    margin-bottom:12px;
+}
+
+.director-info ul{
+    list-style:none;
+
+    color:#c5c5bf;
+
+    font-size:.82rem;
+}
+
+.director-info li{
+    padding:5px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    text-align:center;
+
+    border:
+        1px solid
+        rgba(215,180,106,.25);
+
+    border-radius:34px;
+
+    padding:80px 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(215,180,106,.15),
+            transparent 45%
+        ),
+        rgba(255,255,255,.03);
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.cta h2{
+    max-width:760px;
+
+    margin:
+        0 auto 18px;
+}
+
+.cta p{
+    max-width:650px;
+
+    margin:auto;
+}
+
+.cta .hero-actions{
+    justify-content:center;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    border-top:1px solid var(--line);
-    padding:45px 0;
+    padding:
+        45px 0
+        90px;
+
+    border-top:
+        1px solid var(--line);
+
+    margin-top:50px;
 }
 
-.footer-inner{
-    width:min(var(--max),92%);
-    margin:auto;
+.footer-grid{
     display:flex;
+
     justify-content:space-between;
+
     gap:30px;
+
+    align-items:center;
 }
 
-.footer-copy{
-    color:#6e736f;
-    font-size:12px;
+.footer-note{
+    font-size:.78rem;
+
+    color:#70716e;
+
+    margin-top:8px;
 }
 
 .footer-links{
     display:flex;
-    gap:25px;
-    color:#9a9d9a;
-    font-size:12px;
+
+    gap:18px;
+
+    font-size:.8rem;
+
+    color:#999;
 }
 
-/* ---------- REVEAL ANIMATION ---------- */
+
+/* =========================
+   FLOATING CONTACT
+========================= */
+
+.floating-actions{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    z-index:40;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.float-btn{
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#111318;
+
+    border:
+        1px solid
+        var(--line);
+
+    font-size:1.15rem;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.35);
+
+    transition:.3s;
+}
+
+.float-btn:hover{
+    transform:
+        scale(1.1)
+        translateY(-3px);
+
+    border-color:
+        var(--gold);
+}
+
+.float-btn.wa{
+    background:#1c241d;
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
 
 .reveal{
     opacity:0;
-    transform:translateY(35px);
-    transition:opacity .8s ease,transform .8s ease;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        1s
+        cubic-bezier(.2,.8,.2,1);
 }
 
-.reveal.active{
+.reveal.visible{
     opacity:1;
-    transform:translateY(0);
+
+    transform:none;
 }
 
-/* ---------- MOBILE ---------- */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
-    .nav-links{
-        position:absolute;
-        top:78px;
-        left:4%;
-        right:4%;
+    .navlinks{
         display:none;
-        flex-direction:column;
-        align-items:stretch;
-        padding:25px;
-        background:rgba(15,17,17,.96);
-        backdrop-filter:blur(20px);
-        border:1px solid var(--line);
-        border-radius:20px;
     }
 
-    .nav-links.active{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:10px 0;
-    }
-
-    .menu-btn{
+    .menu{
         display:block;
     }
 
-    .hero-inner{
-        grid-template-columns:1fr;
-        gap:30px;
+    .nav-cta{
+        display:none;
     }
 
-    .hero h1{
-        letter-spacing:-3px;
+    .hero-orb{
+        right:-30%;
+
+        width:85vw;
+        height:85vw;
+
+        opacity:.45;
     }
 
-    .hero-visual{
-        height:450px;
-    }
-
-    .orbit.one{
-        width:390px;
-        height:390px;
-    }
-
-    .orbit.two{
-        width:280px;
-        height:280px;
-    }
-
-    .furniture-object{
-        transform:translate(-50%,-50%) scale(.8) rotateX(12deg) rotateZ(-7deg);
-    }
-
-    .about-grid,
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .services-grid,
+    .cards,
     .directors{
         grid-template-columns:1fr;
     }
 
-    .cta-box{
-        padding:50px 30px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-    }
-}
-
-@media(max-width:500px){
-
-    .hero{
-        padding-top:110px;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .hero-description{
-        font-size:15px;
-    }
-
-    .hero-visual{
-        height:390px;
-    }
-
-    .orbit.one{
-        width:310px;
-        height:310px;
-    }
-
-    .orbit.two{
-        width:220px;
-        height:220px;
-    }
-
-    .furniture-object{
-        transform:translate(-50%,-50%) scale(.62) rotateX(12deg) rotateZ(-7deg);
-    }
-
-    .card-top{
-        right:-5px;
-    }
-
-    .card-bottom{
-        left:-5px;
+    .company-grid{
+        grid-template-columns:1fr;
     }
 
     .section{
-        padding:90px 0;
+        padding:80px 0;
     }
 
-    .about-panel{
-        padding:28px;
+    .section-head{
+        display:block;
     }
 
-    .info-row{
-        flex-direction:column;
-        gap:5px;
+    .section-head p{
+        margin-top:16px;
     }
 
-    .info-row span:last-child{
-        text-align:left;
-    }
-
-    .cta-box h2{
-        letter-spacing:-2px;
+    .director-photo{
+        height:420px;
     }
 }
+
+@media(max-width:600px){
+
+    .brand span{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:
+            clamp(
+                3.1rem,
+                17vw,
+                5rem
+            );
+    }
+
+    .facts{
+        grid-template-columns:1fr;
+    }
+
+    .hero-actions .btn{
+        width:100%;
+    }
+
+    .footer-grid{
+        display:block;
+    }
+
+    .footer-links{
+        margin-top:20px;
+
+        flex-wrap:wrap;
+    }
+}
+
+
+/* MOBILE NAVIGATION */
+
+.navlinks.mobile-open{
+    display:flex;
+
+    position:absolute;
+
+    top:78px;
+    left:0;
+
+    width:100%;
+
+    padding:22px;
+
+    flex-direction:column;
+
+    background:
+        rgba(8,9,11,.96);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="cursor-glow" id="cursorGlow"></div>
-<div class="bg-grid"></div>
-
-<!-- ================= NAVBAR ================= -->
-
-<header class="navbar" id="navbar">
-
-    <div class="nav-inner">
-
-        <a href="#home" class="logo">
-
-            <div class="logo-mark"></div>
-
-            <div>
-                <span>RUNYA</span>
-                <small>VENTURES PRIVATE LIMITED</small>
-            </div>
-
-        </a>
-
-        <nav class="nav-links" id="navLinks">
-            <a href="#about">About</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#company">Company</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#contact" class="nav-btn">Connect ↗</a>
-        </nav>
-
-        <button class="menu-btn" id="menuBtn">☰</button>
-
-    </div>
-
-</header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-<section class="hero" id="home">
+<header>
 
-    <div class="hero-inner">
+<nav class="container">
 
-        <div class="hero-content reveal">
+<a class="brand" href="#home">
 
-            <div class="eyebrow">
-                <i></i>
-                Furniture & Fixture Solutions
-            </div>
+<img
+src="images/runya-logo.jpeg"
+alt="Runya Ventures Logo"
+>
 
-            <h1>
-                Built around
-                <span class="green">better spaces.</span>
-            </h1>
+<span>
+RUNYA VENTURES
+</span>
 
-            <p class="hero-description">
-                Runya Ventures Private Limited is a Raipur-based company
-                focused on the wholesale of furniture and fixtures —
-                bringing practical products, dependable supply and
-                thoughtful solutions to modern spaces.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#solutions" class="btn btn-primary">
-                    Explore Solutions →
-                </a>
-
-                <a href="#company" class="btn btn-outline">
-                    Company Profile
-                </a>
-
-            </div>
-
-        </div>
+</a>
 
 
-        <div class="hero-visual">
+<div class="navlinks">
 
-            <div class="orbit one">
-                <div class="orbit-dot"></div>
-            </div>
+<a href="#about">About</a>
 
-            <div class="orbit two">
-                <div class="orbit-dot"></div>
-            </div>
+<a href="#solutions">
+Solutions
+</a>
 
+<a href="#company">
+Company
+</a>
 
-            <!-- Abstract furniture illustration -->
+<a href="#directors">
+Leadership
+</a>
 
-            <div class="furniture-object">
-
-                <div class="table-top"></div>
-                <div class="table-edge"></div>
-
-                <div class="leg l1"></div>
-                <div class="leg l2"></div>
-
-            </div>
-
-
-            <div class="floating-card card-top">
-                <strong>2026</strong>
-                <span>Established</span>
-            </div>
-
-            <div class="floating-card card-bottom">
-                <strong>RAIPUR</strong>
-                <span>Chhattisgarh, India</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= TICKER ================= -->
-
-<div class="ticker">
-
-    <div class="ticker-track">
-
-        <div class="ticker-item">
-            Furniture <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Fixtures <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Institutional Supply <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Wholesale Solutions <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Raipur • Chhattisgarh <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Furniture <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Fixtures <b>✦</b>
-        </div>
-
-        <div class="ticker-item">
-            Institutional Supply <b>✦</b>
-        </div>
-
-    </div>
+<a href="#contact">
+Contact
+</a>
 
 </div>
 
 
-<!-- ================= ABOUT ================= -->
+<div class="nav-cta">
 
-<section class="section" id="about">
+<a
+class="btn btn-dark"
+href="tel:+917974052001"
+>
+Call
+</a>
 
-    <div class="container">
+<a
+class="btn btn-primary"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+WhatsApp
+</a>
 
-        <div class="about-grid">
-
-            <div class="reveal">
-
-                <div class="section-label">
-                    01 — About Runya
-                </div>
-
-                <h2 class="section-title">
-                    A new company with a clear direction.
-                </h2>
-
-                <p class="section-text">
-                    Runya Ventures Private Limited is an active,
-                    unlisted private company incorporated in August 2026
-                    and registered with the Registrar of Companies,
-                    Chhattisgarh.
-                </p>
-
-                <p class="section-text">
-                    The company's registered activity is wholesale of
-                    furniture and fixtures, positioning Runya Ventures
-                    around the supply and distribution of furniture
-                    products.
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="about-panel reveal">
+<button
+class="menu"
+aria-label="Open Menu"
+onclick="
+document
+.querySelector('.navlinks')
+.classList
+.toggle('mobile-open')
+"
+>
+☰
+</button>
 
-                <div class="section-label">
-                    Company at a glance
-                </div>
+</nav>
 
-                <div class="about-stat">
-
-                    <div class="stat">
-                        <strong data-count="10">0</strong>
-                        <span>₹ Lakh Authorized Capital</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong data-count="1">0</strong>
-                        <span>₹ Lakh Paid-up Capital</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong data-count="3">0</strong>
-                        <span>Directors</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>ACTIVE</strong>
-                        <span>Company Status</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+</header>
 
 
-<!-- ================= SOLUTIONS ================= -->
 
-<section class="section" id="solutions">
+<!-- =========================
+     MAIN
+========================= -->
 
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="section-label">
-                02 — What We Do
-            </div>
-
-            <h2 class="section-title">
-                Furniture solutions with a practical mindset.
-            </h2>
-
-            <p class="section-text">
-                Our business is centred on furniture and fixture
-                products, with an emphasis on organised sourcing,
-                dependable supply and professional execution.
-            </p>
-
-        </div>
+<main>
 
 
-        <div class="services-grid">
+<!-- HERO -->
 
-            <article class="service-card reveal">
+<section
+class="hero"
+id="home"
+>
 
-                <div class="service-number">01 /</div>
+<div class="hero-grid"></div>
 
-                <div class="service-icon">▱</div>
+<div class="hero-orb"></div>
 
-                <h3>Furniture</h3>
-
-                <p>
-                    Furniture products for professional,
-                    institutional and everyday environments.
-                </p>
-
-            </article>
+<div class="float-tag">
+FURNITURE • INTERIORS • SUPPLY
+</div>
 
 
-            <article class="service-card reveal">
+<div class="hero-inner">
 
-                <div class="service-number">02 /</div>
+<div class="hero-copy">
 
-                <div class="service-icon">⌘</div>
-
-                <h3>Fixtures</h3>
-
-                <p>
-                    Fixture solutions designed around functional
-                    spaces and practical requirements.
-                </p>
-
-            </article>
+<div class="eyebrow">
+Runya Ventures Private Limited
+</div>
 
 
-            <article class="service-card reveal">
+<h1>
+Built for
+<span>
+better spaces.
+</span>
+</h1>
 
-                <div class="service-number">03 /</div>
 
-                <div class="service-icon">↗</div>
+<p>
 
-                <h3>Wholesale Supply</h3>
+A newly incorporated company driven by experienced business leadership,
+delivering furniture, interior works, hospital furniture,
+indoor &amp; outdoor furniture, bulk furniture supply,
+and steel + wooden furniture solutions.
 
-                <p>
-                    Structured wholesale supply focused on reliable
-                    sourcing, coordination and fulfilment.
-                </p>
+</p>
 
-            </article>
 
-        </div>
+<div class="hero-actions">
 
-    </div>
+<a
+class="btn btn-primary"
+href="#solutions"
+>
+Explore Solutions →
+</a>
+
+
+<a
+class="btn btn-dark"
+href="tel:+917974052001"
+>
+☎ Call 7974052001
+</a>
+
+
+<a
+class="btn btn-dark"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+◉ WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= COMPANY INFORMATION ================= -->
 
-<section class="section info-section" id="company">
+<!-- TICKER -->
 
-    <div class="container">
+<div class="ticker">
 
-        <div class="info-grid">
+<div class="ticker-track">
 
-            <div class="reveal">
+<span>
+<b>RUNYA</b> VENTURES
+</span>
 
-                <div class="section-label">
-                    03 — Company Information
-                </div>
+<span>
+Furniture Solutions
+</span>
 
-                <h2 class="section-title">
-                    The details behind the company.
-                </h2>
+<span>
+Hospital Furniture
+</span>
 
-                <p class="section-text">
-                    Official company information as currently
-                    available in public corporate records.
-                </p>
+<span>
+Interior Works
+</span>
 
-            </div>
+<span>
+Bulk Supply
+</span>
+
+<span>
+Steel + Wooden
+</span>
 
 
-            <div class="info-list reveal">
+<span>
+<b>RUNYA</b> VENTURES
+</span>
 
-                <div class="info-row">
-                    <span>Legal Name</span>
-                    <span>Runya Ventures Private Limited</span>
-                </div>
+<span>
+Furniture Solutions
+</span>
 
-                <div class="info-row">
-                    <span>CIN</span>
-                    <span>U46493CT2026PTC020873</span>
-                </div>
+<span>
+Hospital Furniture
+</span>
 
-                <div class="info-row">
-                    <span>Status</span>
-                    <span>Active</span>
-                </div>
+<span>
+Interior Works
+</span>
 
-                <div class="info-row">
-                    <span>Incorporated</span>
-                    <span>6 August 2026</span>
-                </div>
+<span>
+Bulk Supply
+</span>
 
-                <div class="info-row">
-                    <span>ROC</span>
-                    <span>RoC — Chhattisgarh</span>
-                </div>
+<span>
+Steel + Wooden
+</span>
 
-                <div class="info-row">
-                    <span>Company Type</span>
-                    <span>Private Company</span>
-                </div>
+</div>
 
-                <div class="info-row">
-                    <span>Listing Status</span>
-                    <span>Unlisted</span>
-                </div>
+</div>
 
-                <div class="info-row">
-                    <span>Business Activity</span>
-                    <span>Wholesale of Furniture & Fixtures</span>
-                </div>
 
-                <div class="info-row">
-                    <span>Authorized Capital</span>
-                    <span>₹10,00,000</span>
-                </div>
 
-                <div class="info-row">
-                    <span>Paid-up Capital</span>
-                    <span>₹1,00,000</span>
-                </div>
+<!-- ABOUT -->
 
-            </div>
+<section
+class="section"
+id="about"
+>
 
-        </div>
+<div class="container">
 
-    </div>
+
+<div class="section-head reveal">
+
+<div>
+
+<div class="eyebrow">
+01 / The Company
+</div>
+
+<h2>
+Practical expertise.
+<br>
+
+<span class="gold">
+One clear direction.
+</span>
+
+</h2>
+
+</div>
+
+
+<p>
+
+Runya Ventures is built around specialized leadership across finance,
+client management, sales, marketing, operations, manufacturing,
+stock management and trade.
+
+</p>
+
+</div>
+
+
+
+<div class="company-grid reveal">
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+Our Approach
+</div>
+
+
+<h3
+style="
+font-size:2rem;
+margin-bottom:15px
+"
+>
+From requirement to delivery.
+</h3>
+
+
+<p>
+
+We focus on understanding each requirement,
+providing the right product or service,
+executing efficiently and supporting clients
+beyond the sale.
+
+</p>
+
+
+<div class="address">
+
+<strong>
+Core Focus
+</strong>
+
+Furniture • Interior Works • Healthcare Furniture •
+Bulk Requirements • Trade &amp; Supply
+
+</div>
+
+</div>
+
+
+
+<div class="info-panel">
+
+<div class="eyebrow">
+Built Around
+</div>
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<small>
+Furniture
+</small>
+
+<strong>
+Steel &amp; Wooden
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Spaces
+</small>
+
+<strong>
+Indoor &amp; Outdoor
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Healthcare
+</small>
+
+<strong>
+Hospital Furniture
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Scale
+</small>
+
+<strong>
+Bulk Supply
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= REGISTERED OFFICE ================= -->
 
-<section class="section">
+<!-- SOLUTIONS -->
 
-    <div class="container">
+<section
+class="section"
+id="solutions"
+>
 
-        <div class="reveal">
+<div class="container">
 
-            <div class="section-label">
-                04 — Registered Office
-            </div>
 
-            <h2 class="section-title">
-                Rooted in Raipur.
-            </h2>
+<div class="section-head reveal">
 
-            <p class="section-text">
-                Our registered office is located in Dharsiwa,
-                Birgaon, Raipur, Chhattisgarh.
-            </p>
+<div>
 
-        </div>
+<div class="eyebrow">
+02 / Solutions
+</div>
 
-        <div class="about-panel reveal" style="margin-top:50px;">
+<h2>
 
-            <div class="section-label">
-                Registered Address
-            </div>
+Designed around
+<br>
 
-            <h3 style="
-                font-family:Manrope;
-                font-size:clamp(24px,4vw,42px);
-                max-width:700px;
-                line-height:1.15;
-                margin-top:20px;
-            ">
-                MD-189, Raita Panchayat,<br>
-                Dharsiwa, Birgaon,<br>
-                Raipur, Chhattisgarh — 493221
-            </h3>
+<span class="gold">
+your requirement.
+</span>
 
-        </div>
+</h2>
 
-    </div>
+</div>
+
+
+<p>
+
+From individual furniture requirements
+to larger supply and interior projects,
+our offering is designed to remain practical,
+flexible and service-focused.
+
+</p>
+
+</div>
+
+
+
+<div class="cards">
+
+
+<article class="card reveal">
+
+<div class="card-number">
+01 — FURNITURE
+</div>
+
+<h3>
+Steel + Wooden
+</h3>
+
+<p>
+
+Functional furniture solutions combining
+steel and wood for different environments
+and requirements.
+
+</p>
+
+</article>
+
+
+
+<article class="card reveal">
+
+<div class="card-number">
+02 — HEALTHCARE
+</div>
+
+<h3>
+Hospital Furniture
+</h3>
+
+<p>
+
+Furniture solutions intended for healthcare
+and hospital environments with a focus
+on functionality.
+
+</p>
+
+</article>
+
+
+
+<article class="card reveal">
+
+<div class="card-number">
+03 — SPACES
+</div>
+
+<h3>
+Interior Works
+</h3>
+
+<p>
+
+Interior furnishing and space-focused work
+for residential, commercial, institutional
+and professional requirements.
+
+</p>
+
+</article>
+
+
+
+<article class="card reveal">
+
+<div class="card-number">
+04 — SUPPLY
+</div>
+
+<h3>
+Bulk Furniture
+</h3>
+
+<p>
+
+Large-volume furniture supply for organizations,
+institutions, commercial requirements
+and projects.
+
+</p>
+
+</article>
+
+
+
+<article class="card reveal">
+
+<div class="card-number">
+05 — LIVING
+</div>
+
+<h3>
+Indoor + Outdoor
+</h3>
+
+<p>
+
+Furniture options for indoor and outdoor spaces,
+selected around practical use and project
+requirements.
+
+</p>
+
+</article>
+
+
+
+<article class="card reveal">
+
+<div class="card-number">
+06 — SUPPORT
+</div>
+
+<h3>
+Service &amp; Support
+</h3>
+
+<p>
+
+Client coordination, operational support
+and after-sales assistance as part of the
+overall service experience.
+
+</p>
+
+</article>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= LEADERSHIP ================= -->
 
-<section class="section" id="leadership">
+<!-- COMPANY PROFILE -->
 
-    <div class="container">
+<section
+class="section"
+id="company"
+>
 
-        <div class="reveal">
-
-            <div class="section-label">
-                05 — Leadership
-            </div>
-
-            <h2 class="section-title">
-                Three directors. One direction.
-            </h2>
-
-        </div>
+<div class="container">
 
 
-        <div class="directors">
+<div class="section-head reveal">
 
-            <div class="director reveal">
+<div>
 
-                <div class="director-avatar">IK</div>
+<div class="eyebrow">
+03 / Company Profile
+</div>
 
-                <h3>Ishan Kashyap</h3>
+<h2>
 
-                <p>Director</p>
+Young company.
+<br>
 
-            </div>
+<span class="gold">
+Experienced leadership.
+</span>
 
+</h2>
 
-            <div class="director reveal">
-
-                <div class="director-avatar">VK</div>
-
-                <h3>Vishesh Kashyap</h3>
-
-                <p>Director</p>
-
-            </div>
+</div>
 
 
-            <div class="director reveal">
+<p>
 
-                <div class="director-avatar">VK</div>
+Runya Ventures Private Limited combines
+a new corporate structure with directors
+bringing hands-on experience across
+different business functions.
 
-                <h3>Vivek Kashyap</h3>
+</p>
 
-                <p>Director</p>
+</div>
 
-            </div>
 
-        </div>
 
-    </div>
+<div class="company-grid reveal">
+
+
+<div class="info-panel">
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<small>
+Company
+</small>
+
+<strong>
+RUNYA VENTURES PRIVATE LIMITED
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+CIN
+</small>
+
+<strong>
+U46493CT2026PTC020873
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Incorporated
+</small>
+
+<strong>
+06 August 2026
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Status
+</small>
+
+<strong>
+Active
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Authorized Capital
+</small>
+
+<strong>
+₹10,00,000
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Paid-up Capital
+</small>
+
+<strong>
+₹1,00,000
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Category
+</small>
+
+<strong>
+Company Limited by Shares
+</strong>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Listing
+</small>
+
+<strong>
+Unlisted
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="info-panel">
+
+
+<div class="eyebrow">
+Registered Office
+</div>
+
+
+<h3
+style="
+font-size:1.65rem;
+margin-bottom:12px
+"
+>
+Raipur, Chhattisgarh
+</h3>
+
+
+<p>
+
+Md-189, Raita, Panchayat,
+Dharsiwa, Birgaon, Raipur,
+Chattisgarh, India, 493221
+
+</p>
+
+
+<div class="address">
+
+<strong>
+Business Activity
+</strong>
+
+Wholesale of furniture and fixtures
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= CTA ================= -->
 
-<section class="cta" id="contact">
+<!-- DIRECTORS -->
 
-    <div class="container">
+<section
+class="section"
+id="directors"
+>
 
-        <div class="cta-box reveal">
+<div class="container">
 
-            <div class="section-label">
-                06 — Let's Connect
-            </div>
 
-            <h2>
-                Let's build better spaces together.
-            </h2>
+<div class="section-head reveal">
 
-            <p>
-                Looking for furniture or fixture solutions?
-                Connect with Runya Ventures Private Limited
-                to discuss your requirement.
-            </p>
+<div>
 
-            <a href="mailto:info@runyaventures.com"
-               class="btn btn-primary">
-                Start a Conversation ↗
-            </a>
+<div class="eyebrow">
+04 / Leadership
+</div>
 
-        </div>
+<h2>
 
-    </div>
+Three directors.
+<br>
+
+<span class="gold">
+Different strengths.
+</span>
+
+</h2>
+
+</div>
+
+
+<p>
+
+A complementary leadership structure covering
+finance, clients, sales, marketing, service,
+manufacturing, stock, trade and internal operations.
+
+</p>
+
+</div>
+
+
+
+<div class="directors">
+
+
+<!-- VIVEK -->
+
+<article class="director reveal">
+
+<div class="director-photo">
+
+<img
+src="images/vivek-kashyap.jpg"
+alt="Vivek Kashyap — Director 1 Primary"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 1 — Primary
+</div>
+
+<h3>
+Vivek Kashyap
+</h3>
+
+
+<p>
+
+Businessman with a Diploma
+in Electrical Engineering.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Client handling
+</li>
+
+<li>
+<b>Focus:</b>
+Finance management
+</li>
+
+<li>
+<b>Focus:</b>
+Cash-flow management
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+
+<!-- VISHESH -->
+
+<article class="director reveal">
+
+<div class="director-photo">
+
+<img
+src="images/vishesh-kashyap.jpg"
+alt="Vishesh Kashyap — Director 2 Secondary"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 2 — Secondary
+</div>
+
+<h3>
+Vishesh Kashyap
+</h3>
+
+
+<p>
+
+Businessman with a Mechanical
+Engineering background.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Client management
+</li>
+
+<li>
+<b>Focus:</b>
+Promotion, sales &amp; marketing
+</li>
+
+<li>
+<b>Focus:</b>
+Operations &amp; after-sales service
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+
+<!-- ISHAN -->
+
+<article class="director reveal">
+
+<div class="director-photo">
+
+<img
+src="images/ishan-kashyap.jpg"
+alt="Ishan Kashyap — Director 3 Territory"
+loading="lazy"
+>
+
+</div>
+
+
+<div class="director-info">
+
+<div class="role">
+Director 3 — Territory
+</div>
+
+<h3>
+Ishan Kashyap
+</h3>
+
+
+<p>
+
+Businessman with a Civil
+Engineering background.
+
+</p>
+
+
+<ul>
+
+<li>
+<b>Focus:</b>
+Stock management
+</li>
+
+<li>
+<b>Focus:</b>
+Manufacturing &amp; trade
+</li>
+
+<li>
+<b>Focus:</b>
+Internal operations
+</li>
+
+</ul>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- CONTACT -->
+
+<section
+class="section"
+id="contact"
+>
+
+<div class="container">
+
+
+<div class="cta reveal">
+
+<div class="eyebrow">
+05 / Let's Work Together
+</div>
+
+
+<h2>
+
+Have a requirement?
+<br>
+
+<span class="gold">
+Let's build the right solution.
+</span>
+
+</h2>
+
+
+<p>
+
+Connect with Runya Ventures for furniture,
+interior works, hospital furniture,
+bulk supply, indoor &amp; outdoor furniture,
+and steel + wooden furniture requirements.
+
+</p>
+
+
+<div class="hero-actions">
+
+
+<a
+class="btn btn-primary"
+href="tel:+917974052001"
+>
+☎ 7974052001
+</a>
+
+
+<a
+class="btn btn-dark"
+href="tel:+919300694128"
+>
+☎ 9300694128
+</a>
+
+
+<a
+class="btn btn-dark"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+◉ WhatsApp
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <div class="footer-inner">
-
-        <div>
-
-            <div class="logo">
-
-                <div class="logo-mark"></div>
-
-                <div>
-                    <span>RUNYA</span>
-                    <small>VENTURES PRIVATE LIMITED</small>
-                </div>
-
-            </div>
-
-            <div class="footer-copy" style="margin-top:15px;">
-                © <span id="year"></span> Runya Ventures Private Limited.
-                All rights reserved.
-            </div>
-
-        </div>
+<div class="container footer-grid">
 
 
-        <div class="footer-links">
+<div>
 
-            <a href="#about">About</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#company">Company</a>
-            <a href="#contact">Contact</a>
+<a
+class="brand"
+href="#home"
+>
 
-        </div>
+<img
+src="images/runya-logo.jpeg"
+alt="Runya Ventures Logo"
+>
 
-    </div>
+<span>
+RUNYA VENTURES
+</span>
+
+</a>
+
+
+<div class="footer-note">
+
+RUNYA VENTURES PRIVATE LIMITED
+•
+CIN U46493CT2026PTC020873
+
+</div>
+
+</div>
+
+
+<div class="footer-links">
+
+<a
+href="tel:+917974052001"
+>
+7974052001
+</a>
+
+<a
+href="tel:+919300694128"
+>
+9300694128
+</a>
+
+<a
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+>
+WhatsApp
+</a>
+
+</div>
+
+
+</div>
 
 </footer>
 
 
+
+<!-- FLOATING CONTACT BUTTONS -->
+
+<div class="floating-actions">
+
+
+<a
+class="float-btn wa"
+href="https://wa.me/917974052001"
+target="_blank"
+rel="noopener"
+aria-label="WhatsApp"
+>
+◉
+</a>
+
+
+<a
+class="float-btn"
+href="tel:+917974052001"
+aria-label="Call"
+>
+☎
+</a>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-/* =========================================================
-   RUNYA VENTURES — INTERACTIONS
-   ========================================================= */
+/* =========================
+   SCROLL REVEAL
+========================= */
 
+const observer =
+new IntersectionObserver(
 
-/* ---------- NAVBAR ---------- */
+(entries)=>{
 
-const navbar = document.getElementById("navbar");
+entries.forEach(
 
-window.addEventListener("scroll", () => {
+(entry)=>{
 
-    if(window.scrollY > 40){
-        navbar.classList.add("scrolled");
-    }else{
-        navbar.classList.remove("scrolled");
-    }
+if(entry.isIntersecting){
 
-});
+entry.target
+.classList
+.add("visible");
 
-
-/* ---------- MOBILE MENU ---------- */
-
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-
-});
-
-
-/* ---------- CURSOR GLOW ---------- */
-
-const glow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", e => {
-
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-
-});
-
-
-/* ---------- SCROLL REVEAL ---------- */
-
-const revealElements =
-document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("active");
-
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold:.12
-    }
-
-);
-
-revealElements.forEach(el => observer.observe(el));
-
-
-/* ---------- COUNTERS ---------- */
-
-const counters =
-document.querySelectorAll("[data-count]");
-
-let counterStarted = false;
-
-const counterObserver = new IntersectionObserver(
-
-    entries => {
-
-        if(entries[0].isIntersecting && !counterStarted){
-
-            counterStarted = true;
-
-            counters.forEach(counter => {
-
-                const target =
-                parseInt(counter.dataset.count);
-
-                let current = 0;
-
-                const duration = 1000;
-
-                const start = performance.now();
-
-                function animate(time){
-
-                    const progress =
-                    Math.min((time-start)/duration,1);
-
-                    current =
-                    Math.floor(progress * target);
-
-                    counter.textContent = current;
-
-                    if(progress < 1){
-                        requestAnimationFrame(animate);
-                    }else{
-                        counter.textContent = target;
-                    }
-
-                }
-
-                requestAnimationFrame(animate);
-
-            });
-
-        }
-
-    },
-
-    {threshold:.5}
-
-);
-
-if(counters.length){
-    counterObserver.observe(counters[0]);
 }
 
+}
 
-/* ---------- YEAR ---------- */
+);
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
+},
 
+{
+threshold:.12
+}
 
-/* ---------- 3D CARD TILT ---------- */
-
-document.querySelectorAll(".service-card").forEach(card => {
-
-    card.addEventListener("mousemove", e => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x =
-        e.clientX - rect.left;
-
-        const y =
-        e.clientY - rect.top;
-
-        const rotateX =
-        ((y / rect.height) - .5) * -5;
-
-        const rotateY =
-        ((x / rect.width) - .5) * 5;
-
-        card.style.transform =
-        `translateY(-10px)
-         perspective(800px)
-         rotateX(${rotateX}deg)
-         rotateY(${rotateY}deg)`;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-});
+);
 
 
-/* ---------- PARALLAX HERO OBJECT ---------- */
+document
+.querySelectorAll(".reveal")
+.forEach(
 
-const heroVisual =
-document.querySelector(".hero-visual");
+el =>
+observer.observe(el)
 
-document.addEventListener("mousemove", e => {
+);
 
-    if(window.innerWidth < 900) return;
 
-    const x =
-    (e.clientX / window.innerWidth - .5);
+/* =========================
+   CURSOR LIGHT
+========================= */
 
-    const y =
-    (e.clientY / window.innerHeight - .5);
+const glow =
+document.getElementById(
+"cursorGlow"
+);
 
-    heroVisual.style.transform =
-    `translate(${x * 10}px,${y * 10}px)`;
 
-});
+window.addEventListener(
+"pointermove",
+(e)=>{
+
+glow.style.left =
+e.clientX + "px";
+
+glow.style.top =
+e.clientY + "px";
+
+}
+);
+
+
+/* =========================
+   3D CARD MOTION
+========================= */
+
+document
+.querySelectorAll(
+".card,.director"
+)
+.forEach(
+
+card=>{
+
+card.addEventListener(
+"pointermove",
+(e)=>{
+
+const r =
+card.getBoundingClientRect();
+
+const x =
+(e.clientX-r.left) /
+r.width - .5;
+
+const y =
+(e.clientY-r.top) /
+r.height - .5;
+
+
+card.style.transform =
+`perspective(900px)
+ rotateX(${y*-3}deg)
+ rotateY(${x*3}deg)
+ translateY(-6px)`;
+
+}
+);
+
+
+card.addEventListener(
+"pointerleave",
+()=>{
+
+card.style.transform="";
+
+}
+);
+
+}
+
+);
 
 </script>
+
 
 </body>
 </html>
