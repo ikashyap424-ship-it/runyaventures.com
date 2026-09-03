@@ -1075,11 +1075,31 @@ nav{
         cubic-bezier(.2,.8,.2,1);
     
     animation: scale-in .8s ease-out both;
+    
+    position:relative;
 }
 
 .director:nth-child(1){ animation-delay: .1s; }
 .director:nth-child(2){ animation-delay: .2s; }
 .director:nth-child(3){ animation-delay: .3s; }
+
+/* Primary director badge */
+.director:nth-child(2)::before{
+    content:"PRIMARY DIRECTOR";
+    position:absolute;
+    top:15px;
+    right:-50px;
+    background:var(--gold);
+    color:#12110d;
+    padding:8px 60px;
+    font-size:.65rem;
+    font-weight:800;
+    letter-spacing:.15em;
+    transform:rotate(45deg);
+    z-index:10;
+    text-align:center;
+    box-shadow: 0 4px 15px rgba(215,180,106,.3);
+}
 
 @keyframes scale-in{
     from{
@@ -1593,13 +1613,13 @@ footer{
                     <img src="images/ishan-kashyap.jpg" alt="Ishan Kashyap">
                 </div>
                 <div class="director-info">
-                    <div class="role">Director</div>
+                    <div class="role">Territory Director</div>
                     <h3>Ishan Kashyap</h3>
-                    <p>Visionary leader driving Runya Ventures' growth and innovation in furniture manufacturing and supply.</p>
+                    <p>Leading territorial expansion and market development across key regions with strategic vision and execution.</p>
                     <ul>
-                        <li>Strategic Planning</li>
-                        <li>Business Development</li>
-                        <li>Client Relations</li>
+                        <li>Regional Strategy</li>
+                        <li>Market Expansion</li>
+                        <li>Stakeholder Management</li>
                     </ul>
                 </div>
             </div>
@@ -1609,13 +1629,13 @@ footer{
                     <img src="images/vivek-kashyap.jpg" alt="Vivek Kashyap">
                 </div>
                 <div class="director-info">
-                    <div class="role">Operations</div>
+                    <div class="role">Primary Director</div>
                     <h3>Vivek Kashyap</h3>
-                    <p>Ensuring seamless execution and quality control across all manufacturing and supply operations.</p>
+                    <p>Visionary leader steering Runya Ventures' strategic direction and overseeing all business operations.</p>
                     <ul>
-                        <li>Quality Assurance</li>
-                        <li>Supply Chain</li>
-                        <li>Production Management</li>
+                        <li>Strategic Planning</li>
+                        <li>Business Development</li>
+                        <li>Operations Oversight</li>
                     </ul>
                 </div>
             </div>
@@ -1625,12 +1645,12 @@ footer{
                     <img src="images/vishesh-kashyap.jpg" alt="Vishesh Kashyap">
                 </div>
                 <div class="director-info">
-                    <div class="role">Design</div>
+                    <div class="role">Secondary Director</div>
                     <h3>Vishesh Kashyap</h3>
-                    <p>Creative innovation in furniture design and interior solutions that meet evolving market demands.</p>
+                    <p>Creative innovator driving product excellence and interior design solutions for evolving market needs.</p>
                     <ul>
                         <li>Product Design</li>
-                        <li>Interior Planning</li>
+                        <li>Quality Assurance</li>
                         <li>Innovation</li>
                     </ul>
                 </div>
